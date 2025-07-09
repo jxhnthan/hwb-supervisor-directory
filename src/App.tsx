@@ -1,45 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { SupervisorCard } from './components/SupervisorCard';
 import supervisorsData from './data/supervisors.json';
 
+// Define the type for a single badge
 type Badge = {
   src: string;
   alt: string;
 };
 
+// Define the type for a supervisor, ensuring badges is an optional array of Badge
 type Supervisor = {
   name: string;
   title: string;
   email: string;
   phone?: string;
   specialisation?: string;
-  bio?: string;
-  badges?: Badge[];
+  bio?: string[]; // Bio is an array of strings
+  badges?: Badge[]; // Badges is an optional array of Badge objects
+  photoUrl?: string; // Add photoUrl if it's part of your data and used
 };
 
 function App() {
-  const allSupervisors: Supervisor[] = supervisorsData as Supervisor[];
+  // Define the new badges to be added
+  const newBadges: Badge[] = [
+    { src: "/images/PENGUIN.jpg", alt: "Penguin Badge" },
+    { src: "/images/ELEPHANT.jpg", alt: "Elephant Badge" },
+    { src: "/images/MONKEY.jpg", alt: "Monkey Badge" }
+  ];
+
+  // Process the supervisorsData to ensure each supervisor has a badges array
+  // and append the new badges to it.
+  const processedSupervisors: Supervisor[] = (supervisorsData as Supervisor[]).map(supervisor => {
+    // Create a new array for badges, including existing ones and then the new ones
+    const updatedBadges = [
+      ...(supervisor.badges || []), // Use existing badges, or an empty array if none
+      ...newBadges // Add the new badges
+    ];
+    return { ...supervisor, badges: updatedBadges };
+  });
+
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredAndSortedSupervisors, setFilteredAndSortedSupervisors] = useState<Supervisor[]>([]);
+
+  // Use useEffect to re-filter and re-sort supervisors when searchTerm changes
+  useEffect(() => {
+    const filtered = processedSupervisors
+      .filter((supervisor) => {
+        if (searchTerm === '') return true;
+
+        const lowerSearchTerm = searchTerm.toLowerCase();
+        return (
+          supervisor.name.toLowerCase().includes(lowerSearchTerm) ||
+          supervisor.title.toLowerCase().includes(lowerSearchTerm) ||
+          (supervisor.specialisation &&
+            supervisor.specialisation.toLowerCase().includes(lowerSearchTerm)) ||
+          supervisor.email.toLowerCase().includes(lowerSearchTerm)
+        );
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+    setFilteredAndSortedSupervisors(filtered);
+  }, [searchTerm]); // Dependency array: run when searchTerm changes
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
-
-  const filteredAndSortedSupervisors = [...allSupervisors]
-    .filter((supervisor) => {
-      if (searchTerm === '') return true;
-
-      const lower = searchTerm.toLowerCase();
-      return (
-        supervisor.name.toLowerCase().includes(lower) ||
-        supervisor.title.toLowerCase().includes(lower) ||
-        (supervisor.specialisation &&
-          supervisor.specialisation.toLowerCase().includes(lower)) ||
-        supervisor.email.toLowerCase().includes(lower)
-      );
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="app">
