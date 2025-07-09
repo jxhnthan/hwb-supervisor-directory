@@ -1,0 +1,255 @@
+:root {
+  /* --- Colors --- */
+  --bg: #f8f5f1; /* Softer, slightly desaturated cream */
+  --card-bg: #ffffff; /* Pure white for crispness */
+  --text: #3c3b3d; /* Deeper charcoal, less reddish-brown */
+  --accent: #8b9ea8; /* A muted, sophisticated blue-grey */
+  --link: #6a8094; /* A slightly darker, more muted link blue */
+  --shadow: rgba(0, 0, 0, 0.04); /* Lighter, more subtle shadow */
+  --border-light: #ece7e0; /* Very subtle border for cards */
+  --border-mid: #e0d9d0; /* Slightly darker for dividers */
+}
+
+body {
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif; /* Prioritize a modern sans-serif like Inter */
+  color: var(--text);
+  line-height: 1.6; /* Slightly increased for better readability */
+}
+
+.app {
+  max-width: 1024px; /* Slightly wider max-width can feel more open and sleek */
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem; /* Increased vertical padding for more breathing room */
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  font-size: 2.5rem; /* Slightly larger for impact */
+  font-weight: 700; /* Bolder for modern feel */
+  margin-bottom: 3rem; /* More space below the header */
+  letter-spacing: -0.02em; /* Subtle letter spacing adjustment for sleekness */
+}
+
+/* === Search Bar === */
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 0.75rem 1.25rem;
+  width: 100%;
+  max-width: 480px;
+  font-size: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 999px; /* pill shape */
+  background-color: #fff;
+  color: var(--text);
+  box-shadow: 0 2px 6px var(--shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #999;
+  opacity: 0.8;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(139, 158, 168, 0.2); /* subtle accent glow */
+}
+
+.directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min-width for cards */
+  gap: 2rem; /* Increased gap for more breathing room between cards */
+}
+
+/* === Card Layout === */
+.card {
+  background: var(--card-bg);
+  border-radius: 0.75rem; /* Slightly less rounded for a sleek look */
+  padding: 1.75rem 2rem; /* Increased padding inside cards */
+  box-shadow: 0 4px 20px var(--shadow); /* Softer, slightly larger shadow for depth */
+  border: 1px solid var(--border-light); /* Using new border variable */
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* Slightly longer transition */
+}
+
+.card:hover {
+  transform: translateY(-4px); /* Slightly more pronounced lift */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06); /* Enhanced hover shadow */
+}
+
+/* === Header: Profile photo + info === */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem; /* Slightly more space between image and text */
+}
+
+.profile-pic {
+  width: 72px; /* Slightly larger profile picture */
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 3px solid var(--accent); /* Using accent for a subtle, elegant border */
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.35rem; /* Slightly larger name */
+  color: var(--text); /* Ensure it uses the new text color */
+}
+
+.title,
+.specialisation {
+  margin: 0.35rem 0 0; /* Adjusted top margin */
+  color: var(--text); /* Using main text color for consistency */
+  opacity: 0.8; /* Subtle opacity for a softer look */
+  font-size: 0.9rem; /* Slightly smaller for hierarchy */
+}
+
+/* === Divider === */
+.divider {
+  margin: 1rem 0; /* More vertical space around divider */
+  border-top: 1px solid var(--border-mid); /* Using new border variable */
+  opacity: 0.7; /* Slightly more visible than 0.6 */
+}
+
+.divider-small {
+  height: 1px;
+  background-color: var(--border-mid);
+  margin: 0.5rem 0;
+  opacity: 0.6;
+  width: 40px;
+  border-radius: 1px;
+}
+
+.name-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badges {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.badge-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px; /* optional, rounded corners */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* === Contact & Bio === */
+.contact {
+  font-size: 0.95rem; /* Slightly larger for readability */
+  color: var(--text); /* Using main text color */
+  opacity: 0.9; /* Subtle opacity */
+}
+
+.contact a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease; /* Smooth transition for hover */
+}
+
+.contact a:hover {
+  text-decoration: none; /* Remove underline on hover for sleekness */
+  color: var(--accent); /* Hover color for links */
+}
+
+.bio {
+  margin-top: 1rem; /* More space above bio */
+  font-size: 0.95rem; /* Slightly larger for readability */
+  color: var(--text); /* Using main text color */
+  opacity: 0.9; /* Subtle opacity */
+  line-height: 1.5; /* Increased line-height for better flow */
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.bio-hide {
+  max-height: 4.5em; /* Adjusted for better truncation */
+  text-overflow: ellipsis;
+  white-space: normal; /* Ensure text wraps */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bio-show {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.bio-toggle {
+  margin-top: 0.5rem; /* More space above toggle */
+  font-size: 0.88rem; /* Slightly larger toggle text */
+  color: var(--link);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.bio-toggle:hover {
+  color: var(--accent); /* Hover color for toggle */
+}
+
+/* === Mobile Tweaks === */
+@media (max-width: 480px) {
+  .app {
+    padding: 1.5rem; /* Slightly more padding on mobile */
+  }
+
+  .card-header {
+    flex-direction: column; /* Stack on mobile for better flow */
+    align-items: center; /* Center items when stacked */
+    text-align: center; /* Center text too */
+    gap: 0.75rem; /* Reduced gap when stacked */
+  }
+
+  .profile-pic {
+    width: 64px;
+    height: 64px;
+  }
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .title,
+  .specialisation {
+    font-size: 0.85rem;
+  }
+
+  .card {
+    padding: 1.5rem; /* Slightly less padding on mobile cards */
+  }
+}
+
+
+
+

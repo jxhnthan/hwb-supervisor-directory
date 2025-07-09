@@ -1,0 +1,271 @@
+[
+  {
+    "name": "Fabiola Agustina Kansil",
+    "email": "fabiola@nus.edu.sg",
+    "title": "Senior Principal Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/FABIOLA.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Hema D/O Sivanathan",
+    "email": "hema.siv@nus.edu.sg",
+    "title": "Senior Principal Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/hema.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Durajpandi Angeline Jayanthi",
+    "email": "angie.mj@nus.edu.sg",
+    "title": "Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/ANGELINE.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Evangeline Chen",
+    "email": "e_chen@nus.edu.sg",
+    "title": "Senior Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/EVANGELINE.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Tan Rui Ping, Benjamin",
+    "email": "benjamin.tan@nus.edu.sg",
+    "title": "Senior Counselling Psychologist",
+    "specialisation": "Counselling Psychologist",
+    "photoUrl": "/images/Benjamin.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Chan Ka Po Carol",
+    "email": "carolc@nus.edu.sg",
+    "title": "Senior Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/CAROL.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Chua Hui Xian Valerie",
+    "email": "valchua@nus.edu.sg",
+    "title": "Senior Counselling Psychologist",
+    "specialisation": "Counselling Psychologist",
+    "photoUrl": "/images/VALERIE.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Shatish Jayakumar Rajamanickam",
+    "email": "shatishj@nus.edu.sg",
+    "title": "Senior Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/SH.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Mandy Lee",
+    "email": "mandy.lee@nus.edu.sg",
+    "title": "Principal Counsellor",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/MANDY.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ]
+  },
+  {
+    "name": "Tan Siew Kei Joanna Ashley",
+    "email": "joanna.ashley.tan@nus.edu.sg",
+    "title": "Clinical Governance Lead (Senior Principal Clinical Psychologist)",
+    "specialisation": "Clinical Psychologist",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "photoUrl": "/images/JAT.jpg"
+  },
+  {
+    "name": "Ahl Claudia Stephanie",
+    "email": "claudia.ahl@nus.edu.sg",
+    "title": "Principal Wellbeing Specialist Partner",
+    "specialisation": "Clinical Psychologist",
+    "photoUrl": "/images/Claudia.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "Claudia completed her Master’s in Clinical Psychology in Australia in 2013 and has since worked across a range of settings, including KK Women’s & Children’s Hospital, Yale-NUS College, and private clinical practices. She has been providing clinical supervision regularly since 2018.",
+      "Claudia’s clinical work encompasses a broad spectrum of presenting issues, including anxiety, depression, stress, interpersonal and relational challenges, personality disorders, eating and body image concerns, and difficulties with emotional regulation. She primarily draws from Cognitive Behavioural Therapy (CBT), Schema Therapy, Dialectical Behaviour Therapy (DBT), and Mindfulness-based approaches in her practice.",
+      "As a supervisor, Claudia takes a collaborative and supportive approach, aiming to create a safe and nurturing space where supervisees feel comfortable discussing their challenges openly. She strives to offer guidance and constructive feedback while maintaining a level of challenge that promotes professional growth and development."
+    ]
+  },
+  {
+    "name": "Soon Jiaying",
+    "email": "jy_soon@nus.edu.sg",
+    "title": "Senior Wellbeing Specialist Partner",
+    "specialisation": "Clinical Psychologist",
+    "photoUrl": "/images/SJY.jpg",
+    "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "Jiaying is a Clinical Psychologist with experience across various settings, including special education, community services, primary care, and private healthcare. She has worked with individuals facing a wide range of psychological concerns such as stress, depression, anxiety, adjustment difficulties, relationship challenges, parenting issues, and experiences of grief and loss.",
+      "Currently, Jiaying is part of HWB’s Staff Wellbeing and Engagement team, where she provides individual psychotherapeutic support to NUS staff. She draws from a range of evidence-based therapeutic approaches, including Cognitive Behavioural Therapy (CBT), Acceptance and Commitment Therapy (ACT), Solution-Focused Therapy (SFT), and Mindfulness-based interventions.",
+      "Jiaying is an SRP-approved Supervisor and has been offering clinical supervision for the past three years. Her training includes a Certificate of Attainment in Supervision, as well as formal knowledge in Reflective Practice and Deliberate Practice in Supervision.",
+      "Jiaying’s supervision is grounded in relationship-building and thoughtful reflection. She values collaboration and is committed to supporting her supervisees in deepening their understanding of client dynamics, while fostering growth in self-awareness and therapeutic presence."
+    ]
+  },
+  {
+    "name": "John Leow",
+    "email": "john.lhc@nus.edu.sg",
+    "title": "Senior Care Manager",
+    "specialisation": "Case Management",
+    "photoUrl": "/images/JL.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "John is a Senior Care Manager with the Staff Wellbeing and Engagement (SWEE) Team, where he supports the Respondent Care and Mental Health Return-to-Work programmes. He brings over a decade of experience in the community service sector and private practice, working with a broad spectrum of individuals across different life stages and challenges.",
+      "John holds a Master of Social Science in Professional Counselling from the Executive Counselling and Training Academy (ECTA) and has been a SAC Registered Counsellor since 2017. He has a strong interest in supporting individuals experiencing addiction and mental health challenges, and currently focuses on helping individuals reintegrate and thrive in the workplace following mental health recovery.",
+      "Grounded in an integrative therapeutic framework, John draws from evidence-based modalities such as Acceptance and Commitment Therapy (ACT), Cognitive Behavioural Therapy (CBT), and Schema Therapy, among others. His approach is client-centred and adaptable to the unique needs of each individual.",
+      "Since 2017, John has been actively involved in supervising Master’s-level counselling interns from institutions such as ECTA, James Cook University (JCU), Monash University, and the Singapore University of Social Sciences (SUSS). In addition, he has been mentoring practising counsellors since 2021, supporting their professional development and clinical growth. His supervisory practice is supported by formal training, including a Certificate of Attainment in Supervision. He adopts a collaborative, reflective, and skills-focused approach to nurture confident, ethical, and client-centred practitioners."
+    ]
+  },
+  {
+    "name": "Dominic Yeo Kian Tong",
+    "email": "dominicy@nus.edu.sg",
+    "title": "Senior Care Manager",
+    "specialisation": "Social Work",
+    "photoUrl": "/images/DY.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "Dominic holds a Bachelor's degree in Social Work and has had the privilege of working in both social service agencies and the Ministry of Health in the past. Due to these roles, his training and experience range from case management and counselling to mental health policy and administration. Dominic enjoys working with individuals and families navigating safety and risk concerns, and he leans on psychodynamic, person-centred and CBT approaches to guide his practice.",
+      "Dominic has also been supervising students and social workers for 4 years; a role he finds deeply rewarding and meaningful. His supervisory style is warm and nurturing, always centred on the supervisee’s learning needs and growth. Past supervisees have described the supervision space as safe, validating, and reflective, where honest, constructive feedback supported their growth in skill and confidence."
+    ]
+  },
+  {
+    "name": "Kirsty Png",
+    "email": "kirstyp@nus.edu.sg",
+    "title": "Senior Wellbeing Specialist Partner ",
+    "specialisation": "Counselling Psychologist",
+    "photoUrl": "/images/KIRSTY.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "Kirsty is a Senior Wellbeing Specialist Partner with HWB. As an SRP approved supervisor, her clinical experience spans across a range of presenting concerns including trauma, grief and loss, mood & anxiety disorders, learning needs, parenting challenges, and relationship challenges.",
+      "With professional training in Counselling Psychology, Educational Therapy, and Gottman Couples Therapy level 3, Kirsty has worked in the educational, community, public hospital & private health care settings. Kirsty adopts an integrative approach which encompasses Psychodynamic, SBT, DBT, SFBT, MI, Gottman Couples Therapy, and TFCBT modalities.",
+      "Supervisory style wise, Kirsty holds space for reflective and collaborative practices, placing much value in scaffolding supervisee’s growth as a person as well as in professional capacities."
+    ]
+  },
+  {
+    "name": "Jaya Rajesh",
+    "email": "jaya@nus.edu.sg",
+    "title": "Senior Residential Wellness Manager",
+    "specialisation": "Social Work",
+    "photoUrl": "/images/jaya.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "Jaya is a dedicated Residential Wellness Manager with over 11 years of experience in providing clinical supervision. She holds master’s degrees in Social Work, Narrative Therapy, and Community Work, and is a registered SASW supervisor. Jaya has supervised social work interns since 2014 and junior staff from 2016 to 2022, offering both group and individual supervision. Her expertise lies in utilizing social work principles, case management, and narrative therapy to support and empower those under her care. Since 2024, Jaya has also been offering clinical supervision within HWB, guiding practitioners in their professional development and ensuring high standards of clinical practice. She is passionate about helping individuals re-author their stories, guiding them through personal challenges with empathy and a strengths-based approach.",
+      "In her current role, Jaya focuses on addressing the emotional and psychological concerns of residential students, offering timely guidance and support to ensure their well-being. She is also actively involved in the development of student leaders, conducting training sessions, and organizing various engagement activities to foster a connected and supportive residential community. Through her holistic and compassionate approach, Jaya creates a nurturing environment that enables students to thrive both personally and academically."
+    ]
+  },
+  {
+    "name": "Jimmy Sim Chin Min",
+    "email": "jim_sim@nus.edu.sg",
+    "title": "Lead Residential Wellness Manager",
+    "specialisation": "Counselling",
+    "photoUrl": "/images/jimmy.jpg",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "bio": [
+      "As the Residential Wellness Manager (Lead), Jim works closely with the Chief Wellbeing Officer (Andrew) and Deputy Head (Zheng) to ensure effective case management and the provision of timely support for students residing in NUS hostels. His collaborative approach and commitment to student welfare help foster a safe and supportive environment, empowering students to navigate challenges and thrive during their university journey.",
+      "Jim holds a Certificate in Supervision for the Social Services (Basic) and brings a strong background in Counselling, having dedicated his professional career to the education sector since graduation. Beginning with peer case consultations in 2023, Jim has been offering clinical supervision within HWB since 2024, supporting fellow practitioners in their growth and reflective practice. While he does not adhere to any specific therapeutic modality, Jim is particularly drawn to strength-based and person-centered approaches, believing in the inherent potential and resilience of each individual.",
+      "Jim is likely to be known for his participative supervisory style, with previous supervisees highlighting how his openness and flexibility have positively benefited their own practices. He encourages active dialogue and mutual learning, creating an environment where supervisees feel heard, supported, and empowered to develop their clinical skills and confidence."
+    ]
+  },
+  {
+    "name": "Goh Zhengqin",
+    "email": "gzq@nus.edu.sg",
+    "title": "Deputy Director & Deputy Head",
+    "specialisation": "Clinical Psychologist",
+        "badges": [
+      {
+        "src": "/images/SGF.jpg",
+        "alt": "SPS Singapore"
+      }
+    ],
+    "photoUrl": "/images/gzq.jpg"
+  }
+]
