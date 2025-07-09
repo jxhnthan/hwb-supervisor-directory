@@ -15,7 +15,7 @@ type Supervisor = {
   phone?: string;
   specialisation?: string;
   bio?: string;
-  badges?: Badge[];  // <-- Added badges
+  badges?: Badge[];
 };
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
     <div className="app">
       <h1 className="header">Clinical Supervisor Directory</h1>
 
-      {/* Search Section (no icons) */}
+      {/* Search Section */}
       <div className="search-filter-container">
         <input
           type="text"
@@ -67,15 +67,17 @@ function App() {
           <p className="no-results">No supervisors found matching your search criteria.</p>
         )}
       </div>
+
+      {/* Footer */}
+      <div className="footer">
+        Last updated: July 9, 2025
+      </div>
+    </div>
   );
 }
 
-    <div className="footer">
-      Last updated: July 9, 2025
-    </div>
-  </div>
-
 export default App;
+
 
 
 
