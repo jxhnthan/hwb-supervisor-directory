@@ -201,7 +201,7 @@ body {
 
 .title,
 .specialisation {
-  margin: 0.4rem 0 0; /* Adjusted top margin */
+  margin: 0.4rem 0 1rem; /* CHANGED: Increased margin-bottom to 1rem for more space */
   color: var(--text-medium); /* Use medium text color for secondary info */
   opacity: 0.9;
   font-size: 0.95rem; /* Slightly larger for better readability */
@@ -234,6 +234,7 @@ body {
 .badges {
   display: flex;
   gap: 0.5rem; /* Increased gap between badges */
+  /* No margin-top needed here if handled by specialisation's margin-bottom */
 }
 
 .badge-img {
@@ -383,6 +384,7 @@ body {
 
   .title,
   .specialisation {
+    margin: 0.4rem 0 0.8rem; /* CHANGED for mobile: Adjusted margin-bottom */
     font-size: 0.88rem;
   }
 
@@ -437,6 +439,7 @@ body {
 
   .title,
   .specialisation {
+    margin: 0.4rem 0 0.7rem; /* CHANGED for extra small mobile: Adjusted margin-bottom */
     font-size: 0.8rem;
   }
 }
