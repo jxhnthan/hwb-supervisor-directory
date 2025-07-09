@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import React, { useState, useRef } from 'react'; // Import useRef
+import html2canvas from 'html2canvas'; // Import html2canvas
+
+// ... (Badge and Supervisor types remain unchanged) ...
 
 type Badge = {
+  id: string;
   src: string;
   alt: string;
 };
@@ -11,48 +15,156 @@ type Supervisor = {
   email: string;
   phone?: string;
   specialisation?: string;
-  bio?: string | string[]; // support string or array of paragraphs
+  bio?: string | string[];
   photoUrl?: string;
-  badges?: Badge[];
+  badges: Badge[];
 };
 
-export function SupervisorCard({ supervisor }: { supervisor: Supervisor }) {
+type SupervisorCardProps = {
+  supervisor: Supervisor;
+  onBadgeDrop: (supervisorEmail: string, droppedBadgeId: string) => void;
+  onBadgeRemove: (supervisorEmail: string, badgeIdToRemove: string) => void;
+};
+
+export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: SupervisorCardProps) {
   const [showBio, setShowBio] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const cardRef = useRef<HTMLDivElement>(null); // To target the card for screenshot
+
+  const renderBio = (bioContent: string | string[]) => {
+    if (Array.isArray(bioContent)) {
+      return bioContent.map((paragraph, idx) => (
+        <p key={idx}>{paragraph}</p>
+      ));
+    } else {
+      return <p>{bioContent}</p>;
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragOver(false);
+
+    const droppedBadgeId = e.dataTransfer.getData("text/plain");
+
+    if (droppedBadgeId) {
+      onBadgeDrop(supervisor.email, droppedBadgeId);
+    }
+  };
+
+  const handleBadgeClick = (badgeId: string) => {
+    if (window.confirm("Remove this badge from the profile?")) {
+      onBadgeRemove(supervisor.email, badgeId);
+    }
+  };
+
+  const handleDownloadProfile = async () => {
+    if (!cardRef.current) {
+      console.error("Card ref is not available for screenshot.");
+      return;
+    }
+
+    setIsDownloading(true);
+
+    try {
+      // Temporarily expand bio if it's collapsed, to capture full content
+      const wasBioCollapsed = !showBio && supervisor.bio && (Array.isArray(supervisor.bio) ? supervisor.bio.length > 1 : (supervisor.bio as string).length > 100); // Check if bio is likely truncated
+      if (wasBioCollapsed) {
+        setShowBio(true); // Expand bio before screenshot
+        await new Promise(resolve => setTimeout(resolve, 100)); // Give React a moment to render
+      }
+
+      const canvas = await html2canvas(cardRef.current, {
+        useCORS: true,
+        // scale: 2, // Consider adding this for higher resolution images
+      });
+
+      // Reset bio state if it was temporarily expanded
+      if (wasBioCollapsed) {
+        setShowBio(false);
+      }
+
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = `${supervisor.name.replace(/\s+/g, '-')}-profile.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error("Error capturing profile:", error);
+      alert("Failed to capture profile image. Please try again.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
 
   return (
-    <div className="card" aria-expanded={showBio}>
-      <div className="card-header">
+    <div
+      ref={cardRef}
+      className={`supervisor-card ${isDragOver ? 'drag-over-target' : ''}`}
+      aria-expanded={showBio}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <div className="supervisor-header">
         {supervisor.photoUrl && (
           <img
             src={supervisor.photoUrl}
             alt={supervisor.name}
-            className="profile-pic"
+            className="supervisor-photo"
           />
         )}
         <div className="info">
-          <h2 className="name">{supervisor.name}</h2>
-          <p className="title">{supervisor.title}</p>
+          {/* Download Button - Moved slightly and icon instead of text */}
+          <button
+            className="download-profile-button"
+            onClick={handleDownloadProfile}
+            disabled={isDownloading}
+            title="Download Profile as PNG"
+          >
+            {isDownloading ? '...' : '📸'} {/* Using camera emoji or Unicode download icon */}
+          </button>
 
-          {/* Small divider between title and specialisation */}
+          <h2 className="supervisor-name">{supervisor.name}</h2>
+          <p className="supervisor-title">{supervisor.title}</p>
+
           <div className="divider-small" />
 
           {supervisor.specialisation && (
-            <p className="specialisation">{supervisor.specialisation}</p>
+            <p className="supervisor-specialisation">{supervisor.specialisation}</p>
           )}
 
-          {/* BADGES */}
-          {supervisor.badges && supervisor.badges.length > 0 && (
-            <div className="badges">
-              {supervisor.badges.map((badge, index) => (
+          {/* Display badges currently assigned to this supervisor */}
+          <div className="badges-container">
+            {supervisor.badges.length > 0 ? (
+              supervisor.badges.map((badge) => (
                 <img
-                  key={index}
+                  key={badge.id}
                   src={badge.src}
                   alt={badge.alt}
-                  className="badge-image"
+                  className="badge-icon badge-clickable"
+                  onClick={() => handleBadgeClick(badge.id)}
+                  title={`Click to remove ${badge.alt}`}
                 />
-              ))}
-            </div>
-          )}
+              ))
+            ) : (
+              <p className="no-badges-yet">Drag badges here to add!</p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -67,12 +179,8 @@ export function SupervisorCard({ supervisor }: { supervisor: Supervisor }) {
 
       {supervisor.bio && (
         <>
-          <div className={`bio ${showBio ? 'bio-show' : 'bio-hide'}`}>
-            {Array.isArray(supervisor.bio)
-              ? supervisor.bio.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))
-              : supervisor.bio}
+          <div className={`supervisor-bio ${showBio ? 'bio-show' : 'bio-hide'}`}>
+            {renderBio(supervisor.bio)}
           </div>
           <p
             className="bio-toggle"
@@ -81,7 +189,10 @@ export function SupervisorCard({ supervisor }: { supervisor: Supervisor }) {
             tabIndex={0}
             aria-label={showBio ? 'Collapse bio' : 'Expand bio'}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') setShowBio(!showBio);
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setShowBio(!showBio);
+              }
             }}
           >
             {showBio ? 'Show less ▲' : 'Read more ▼'}
@@ -91,7 +202,6 @@ export function SupervisorCard({ supervisor }: { supervisor: Supervisor }) {
     </div>
   );
 }
-
 
 
 

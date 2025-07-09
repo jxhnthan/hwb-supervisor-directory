@@ -7,20 +7,19 @@
     "photoUrl": "/images/FABIOLA.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -38,20 +37,19 @@
     "photoUrl": "/images/hema.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -69,20 +67,19 @@
     "photoUrl": "/images/ANGELINE.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -100,20 +97,19 @@
     "photoUrl": "/images/EVANGELINE.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -129,20 +125,19 @@
     "photoUrl": "/images/Benjamin.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -160,20 +155,19 @@
     "photoUrl": "/images/CAROL.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -192,20 +186,19 @@
     "photoUrl": "/images/VALERIE.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -223,20 +216,19 @@
     "photoUrl": "/images/SH.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -253,20 +245,19 @@
     "photoUrl": "/images/MANDY.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -283,20 +274,19 @@
     "specialisation": "Clinical Psychologist",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "photoUrl": "/images/JAT.jpg",
@@ -316,20 +306,19 @@
     "photoUrl": "/images/Claudia.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -346,20 +335,19 @@
     "photoUrl": "/images/SJY.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -377,20 +365,19 @@
     "photoUrl": "/images/JL.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -408,20 +395,19 @@
     "photoUrl": "/images/DY.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -437,20 +423,19 @@
     "photoUrl": "/images/KIRSTY.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -467,20 +452,19 @@
     "photoUrl": "/images/jaya.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -496,20 +480,19 @@
     "photoUrl": "/images/jimmy.jpg",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "bio": [
@@ -525,20 +508,19 @@
     "specialisation": "Clinical Psychologist",
     "badges": [
       {
-        "src": "/images/SGF.jpg",
-        "alt": "SPS Singapore"
-      },
-      {
         "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge"
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
       },
       {
         "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge"
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
       },
       {
         "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge"
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
       }
     ],
     "photoUrl": "/images/gzq.jpg"
