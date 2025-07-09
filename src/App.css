@@ -18,8 +18,8 @@
 
   /* Sidebar dimensions */
   --sidebar-width: 300px; /* The actual width of the sidebar when expanded */
-  --sidebar-collapsed-width: 0px; /* The effective width of the sidebar when visually 'collapsed' - it's off-screen */
-                                 /* We keep this variable for consistency, but its width is implied by its right position */
+  /* Collapsed width is effectively 0px visually; the bar is the toggle button */
+  --sidebar-collapsed-width: 0px; 
   --toggle-button-size: 35px;
   /* This offset positions the button relative to the RIGHT edge of the viewport */
   --toggle-button-offset-from-right: 1.5rem; /* A small fixed offset from the viewport edge */
@@ -68,7 +68,7 @@ body {
 
 /* Main Content Area (Left) */
 .main-content {
-  flex: 1; /* Allows main content to fill available space */
+  flex: 1; /* Allow main content to fill available space */
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -391,7 +391,7 @@ body {
   border-radius: 1px;
 }
 
-/* Badges Container within Supervisor Card - NEW GRID LAYOUT */
+/* Badges Container within Supervisor Card - UPDATED GRID LAYOUT */
 .badges-container {
   display: grid; /* Changed to grid */
   grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
@@ -777,7 +777,6 @@ body {
     font-size: 0.8rem;
   }
 }
-
 
 
 
