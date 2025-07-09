@@ -71,6 +71,11 @@ function App() {
   );
 }
 
+    <div className="footer">
+      Last updated: July 9, 2025
+    </div>
+  </div>
+
 export default App;
 
 
