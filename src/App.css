@@ -68,7 +68,7 @@ body {
 
 /* Main Content Area (Left) */
 .main-content {
-  flex: 1; /* Allow main content to fill available space */
+  flex: 1; /* Allows main content to fill available space */
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -303,7 +303,7 @@ body {
 /* Directory Grid */
 .directory {
   display: grid;
-  /* Adjusted minmax for better flow with the fixed sidebar */
+  /* Standardized grid for main content to better accommodate sidebar */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax value */
   gap: 2.5rem;
   flex-grow: 1;
@@ -391,14 +391,16 @@ body {
   border-radius: 1px;
 }
 
-/* Badges Container within Supervisor Card - UPDATED GRID LAYOUT */
+/* Badges Container within Supervisor Card - NEW GRID LAYOUT */
 .badges-container {
   display: grid; /* Changed to grid */
-  grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
+  /* This creates 3 columns, each sized to fit its content, effectively packing them */
+  grid-template-columns: repeat(3, auto); /* Change from 1fr to auto */
   gap: 0.5rem; /* Gap between grid items */
   margin-top: 15px;
   min-height: 35px; /* Ensure space for badges even if none initially */
-  justify-items: center; /* Center items horizontally within their grid cells */
+  /* Use justify-content to center the *tracks* (columns) within the container */
+  justify-content: center; /* Center the whole group of badges horizontally */
   align-items: center; /* Center items vertically within their grid cells */
   width: 100%; /* Ensure container fills available width */
   box-sizing: border-box; /* Include padding/border in width calculation */
@@ -411,6 +413,7 @@ body {
   object-fit: contain;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
+  /* No need for margin: 0 auto; on badge-icon itself when parent uses justify-items: center or justify-content */
 }
 
 /* Make badges clickable on profiles */
@@ -777,6 +780,5 @@ body {
     font-size: 0.8rem;
   }
 }
-
 
 
