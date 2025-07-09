@@ -35,6 +35,7 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-tea', src: "/images/TEA.png", alt: "TEA Badge" },
   { id: 'badge-pizza', src: "/images/PIZZA.png", alt: "PIZZA Badge" },
   { id: 'badge-taco', src: "/images/TACO.png", alt: "Taco Badge" },
+  { id: 'badge-icecream', src: "/images/icecream.png", alt: "Ice Cream Badge" },
 ];
 
 function App() {
