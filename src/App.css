@@ -1,108 +1,187 @@
 :root {
   /* --- Colors --- */
-  --bg: #f8f5f1; /* Softer, slightly desaturated cream */
+  --bg: #f5f5f5; /* Lighter, cleaner background */
   --card-bg: #ffffff; /* Pure white for crispness */
-  --text: #3c3b3d; /* Deeper charcoal, less reddish-brown */
-  --accent: #8b9ea8; /* A muted, sophisticated blue-grey */
-  --link: #6a8094; /* A slightly darker, more muted link blue */
-  --shadow: rgba(0, 0, 0, 0.04); /* Lighter, more subtle shadow */
-  --border-light: #ece7e0; /* Very subtle border for cards */
-  --border-mid: #e0d9d0; /* Slightly darker for dividers */
+  --text-dark: #333333; /* Stronger charcoal for main text */
+  --text-medium: #555555; /* Slightly lighter for secondary text */
+  --text-light: #888888; /* Even lighter for subtle details */
+  --accent: #6c757d; /* A more subdued, elegant grey-blue for accents */
+  --link: #495057; /* Darker, more prominent link color */
+  --shadow: rgba(0, 0, 0, 0.08); /* Slightly more pronounced but soft shadow */
+  --border-light: #e0e0e0; /* Clean, light grey border */
+  --border-mid: #cccccc; /* Mid-grey for stronger dividers */
 }
 
 body {
   background-color: var(--bg);
   margin: 0;
   padding: 0;
-  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif; /* Prioritize a modern sans-serif like Inter */
-  color: var(--text);
-  line-height: 1.6; /* Slightly increased for better readability */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* Modern font stack, Inter is a great choice */
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+  -moz-osx-font-smoothing: grayscale; /* Smoother font rendering */
 }
 
 .app {
-  max-width: 1024px; /* Slightly wider max-width can feel more open and sleek */
+  max-width: 1100px; /* Increased max-width for a more expansive feel on larger screens */
   margin: 0 auto;
-  padding: 2.5rem 1.5rem; /* Increased vertical padding for more breathing room */
+  padding: 3rem 2rem; /* Increased padding for more breathing room */
   min-height: 100vh;
+  display: flex; /* Use flexbox for overall layout */
+  flex-direction: column; /* Stack children vertically */
 }
 
 .header {
   text-align: center;
-  font-size: 2.5rem; /* Slightly larger for impact */
-  font-weight: 700; /* Bolder for modern feel */
-  margin-bottom: 3rem; /* More space below the header */
-  letter-spacing: -0.02em; /* Subtle letter spacing adjustment for sleekness */
+  font-size: 2.8rem; /* Larger and bolder for clear hierarchy */
+  font-weight: 800; /* Even bolder */
+  margin-bottom: 3.5rem; /* More generous space */
+  letter-spacing: -0.03em; /* Tighter letter spacing for a modern headline feel */
+  color: var(--text-dark);
 }
 
-/* === Search Bar === */
+/* --- Search Bar & Filters --- */
 .search-filter-container {
   display: flex;
+  flex-direction: column; /* Stack search and filters on smaller screens */
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
+  gap: 1.5rem; /* Increased gap */
+  margin-bottom: 3rem; /* More space below search/filter */
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px; /* Slightly wider search bar */
 }
 
 .search-input {
-  padding: 0.75rem 1.25rem;
+  padding: 0.9rem 1.5rem 0.9rem 2.8rem; /* Increased padding, extra left for icon */
   width: 100%;
-  max-width: 480px;
-  font-size: 1rem;
+  font-size: 1.05rem; /* Slightly larger input text */
   border: 1px solid var(--border-light);
-  border-radius: 999px; /* pill shape */
-  background-color: #fff;
-  color: var(--text);
-  box-shadow: 0 2px 6px var(--shadow);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  border-radius: 999px; /* Pill shape */
+  background-color: var(--card-bg); /* Use card background for consistency */
+  color: var(--text-dark);
+  box-shadow: 0 4px 10px var(--shadow); /* Softer, slightly larger initial shadow */
+  transition: box-shadow 0.25s ease, border-color 0.25s ease; /* Longer transition for smoother effect */
 }
 
 .search-input::placeholder {
-  color: #999;
-  opacity: 0.8;
+  color: var(--text-light); /* Use lighter text for placeholder */
+  opacity: 0.9;
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(139, 158, 168, 0.2); /* subtle accent glow */
+  box-shadow: 0 0 0 4px rgba(108, 117, 125, 0.25); /* More pronounced but still subtle accent glow */
 }
+
+.search-icon {
+  position: absolute;
+  left: 1rem; /* Position the icon */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 1.1rem; /* Icon size */
+}
+
+.clear-search-button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%; /* Make it round */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clear-search-button:hover {
+  background-color: var(--border-light);
+  color: var(--text-dark);
+}
+
+.specialisation-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Spacing between filter buttons */
+  justify-content: center;
+}
+
+.filter-button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-mid);
+  border-radius: 5px; /* Slight rounding for buttons */
+  background-color: var(--card-bg);
+  color: var(--text-medium);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.filter-button:hover:not(.active) {
+  background-color: var(--border-light);
+  border-color: var(--accent);
+  color: var(--text-dark);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filter-button.active {
+  background-color: var(--accent);
+  color: #ffffff; /* White text on active accent background */
+  border-color: var(--accent);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+}
+
 
 .directory {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min-width for cards */
-  gap: 2rem; /* Increased gap for more breathing room between cards */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min-width slightly increased for larger cards */
+  gap: 2.5rem; /* More generous gap between cards */
+  flex-grow: 1; /* Allows directory to take up available space */
 }
 
 /* === Card Layout === */
 .card {
   background: var(--card-bg);
-  border-radius: 0.75rem; /* Slightly less rounded for a sleek look */
-  padding: 1.75rem 2rem; /* Increased padding inside cards */
-  box-shadow: 0 4px 20px var(--shadow); /* Softer, slightly larger shadow for depth */
-  border: 1px solid var(--border-light); /* Using new border variable */
-  transition: transform 0.25s ease, box-shadow 0.25s ease; /* Slightly longer transition */
+  border-radius: 0.85rem; /* Slightly more rounded for a softer, modern look */
+  padding: 2rem 2.25rem; /* Increased padding inside cards */
+  box-shadow: 0 6px 30px var(--shadow); /* Softer, slightly larger initial shadow for more depth */
+  border: 1px solid var(--border-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Slightly longer, smoother transition */
+  display: flex;
+  flex-direction: column; /* Ensure content stacks vertically */
 }
 
 .card:hover {
-  transform: translateY(-4px); /* Slightly more pronounced lift */
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06); /* Enhanced hover shadow */
+  transform: translateY(-6px); /* More pronounced lift on hover */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* More significant hover shadow */
 }
 
-/* === Header: Profile photo + info === */
+/* === Card Header: Profile photo + info === */
 .card-header {
   display: flex;
-  align-items: flex-start;
-  gap: 1.25rem; /* Slightly more space between image and text */
+  align-items: flex-start; /* Align to top for multi-line titles/specializations */
+  gap: 1.5rem; /* More space between image and text */
 }
 
 .profile-pic {
-  width: 72px; /* Slightly larger profile picture */
-  height: 72px;
+  width: 80px; /* Larger profile picture */
+  height: 80px;
   object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
-  border: 3px solid var(--accent); /* Using accent for a subtle, elegant border */
+  border: 4px solid var(--accent); /* Thicker, more prominent accent border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on profile pic */
 }
 
 .info {
@@ -112,87 +191,91 @@ body {
 .name {
   margin: 0;
   font-weight: 700;
-  font-size: 1.35rem; /* Slightly larger name */
-  color: var(--text); /* Ensure it uses the new text color */
+  font-size: 1.5rem; /* Larger, more impactful name */
+  color: var(--text-dark);
+  line-height: 1.2;
 }
 
 .title,
 .specialisation {
-  margin: 0.35rem 0 0; /* Adjusted top margin */
-  color: var(--text); /* Using main text color for consistency */
-  opacity: 0.8; /* Subtle opacity for a softer look */
-  font-size: 0.9rem; /* Slightly smaller for hierarchy */
+  margin: 0.4rem 0 0; /* Adjusted top margin */
+  color: var(--text-medium); /* Use medium text color for secondary info */
+  opacity: 0.9;
+  font-size: 0.95rem; /* Slightly larger for better readability */
+  line-height: 1.3;
 }
 
 /* === Divider === */
 .divider {
-  margin: 1rem 0; /* More vertical space around divider */
-  border-top: 1px solid var(--border-mid); /* Using new border variable */
-  opacity: 0.7; /* Slightly more visible than 0.6 */
+  margin: 1.2rem 0; /* More vertical space around divider */
+  border-top: 1px solid var(--border-mid);
+  opacity: 0.6; /* Slightly softer appearance */
 }
 
 .divider-small {
   height: 1px;
   background-color: var(--border-mid);
-  margin: 0.5rem 0;
-  opacity: 0.6;
-  width: 40px;
+  margin: 0.6rem 0;
+  opacity: 0.5; /* Even softer for small divider */
+  width: 50px; /* Slightly longer small divider */
   border-radius: 1px;
 }
 
 .name-badge-container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem; /* Slightly more space for badges */
   flex-wrap: wrap;
 }
 
 .badges {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.5rem; /* Increased gap between badges */
 }
 
 .badge-img {
-  width: 24px;
-  height: 24px;
+  width: 28px; /* Slightly larger badges */
+  height: 28px;
   object-fit: contain;
-  border-radius: 4px; /* optional, rounded corners */
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px; /* Slightly more rounded corners */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow for badges */
 }
 
 /* === Contact & Bio === */
 .contact {
-  font-size: 0.95rem; /* Slightly larger for readability */
-  color: var(--text); /* Using main text color */
-  opacity: 0.9; /* Subtle opacity */
+  font-size: 1rem; /* Clearer font size for contact info */
+  color: var(--text-medium);
+  opacity: 0.95;
+  margin-top: 0.5rem; /* Add some top margin to contact */
 }
 
 .contact a {
   color: var(--link);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease; /* Smooth transition for hover */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .contact a:hover {
-  text-decoration: none; /* Remove underline on hover for sleekness */
-  color: var(--accent); /* Hover color for links */
+  text-decoration: underline; /* Underline on hover for clear affordance */
+  color: var(--accent);
 }
 
 .bio {
-  margin-top: 1rem; /* More space above bio */
-  font-size: 0.95rem; /* Slightly larger for readability */
-  color: var(--text); /* Using main text color */
-  opacity: 0.9; /* Subtle opacity */
-  line-height: 1.5; /* Increased line-height for better flow */
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  margin-top: 1.5rem; /* More generous space above bio */
+  font-size: 0.95rem;
+  color: var(--text-medium); /* Bio text uses medium color */
+  opacity: 0.95;
+  line-height: 1.6; /* Improved line-height for readability */
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out; /* Smoother transition */
   overflow: hidden;
+  flex-grow: 1; /* Allow bio to take available space */
 }
 
 .bio-hide {
-  max-height: 4.5em; /* Adjusted for better truncation */
+  max-height: 5.4em; /* Adjusted for exactly 3 lines of 1.6 line-height text */
   text-overflow: ellipsis;
-  white-space: normal; /* Ensure text wraps */
+  white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Limit to 3 lines */
   -webkit-box-orient: vertical;
@@ -200,66 +283,158 @@ body {
 }
 
 .bio-show {
-  max-height: 1000px;
+  max-height: 1000px; /* Sufficiently large to show full content */
   opacity: 1;
 }
 
 .bio-toggle {
-  margin-top: 0.5rem; /* More space above toggle */
-  font-size: 0.88rem; /* Slightly larger toggle text */
+  margin-top: 0.8rem; /* More space above toggle */
+  font-size: 0.9rem; /* Slightly larger toggle text */
   color: var(--link);
   font-weight: 600;
   cursor: pointer;
   user-select: none;
   transition: color 0.2s ease;
+  align-self: flex-start; /* Align toggle to the start within the flex card */
 }
 
 .bio-toggle:hover {
-  color: var(--accent); /* Hover color for toggle */
+  color: var(--accent);
 }
 
-/* === Mobile Tweaks === */
-@media (max-width: 480px) {
+/* --- No Results Message --- */
+.no-results {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-top: 3rem;
+  grid-column: 1 / -1; /* Center across all grid columns */
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  font-size: 0.8rem; /* Slightly smaller font for more subtlety */
+  color: var(--text-light); /* Lighter text for footer */
+  opacity: 0.8; /* Slightly more visible than 0.6 */
+  margin-top: 4rem; /* More space above the footer */
+  padding-top: 1.5rem; /* Consistent top padding */
+  padding-bottom: 1rem; /* Balanced bottom padding */
+  border-top: 1px solid var(--border-light); /* Clean, subtle border */
+  /* background-color: rgba(0, 0, 0, 0.02); */ /* Optional: very subtle background tint */
+}
+
+
+/* === Mobile & Tablet Tweaks === */
+@media (max-width: 768px) {
   .app {
-    padding: 1.5rem; /* Slightly more padding on mobile */
+    padding: 2rem 1.25rem;
+  }
+
+  .header {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .search-filter-container {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-input {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .filter-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .directory {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Smaller min-width for mobile cards */
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.5rem;
+    border-radius: 0.75rem;
   }
 
   .card-header {
-    flex-direction: column; /* Stack on mobile for better flow */
-    align-items: center; /* Center items when stacked */
-    text-align: center; /* Center text too */
-    gap: 0.75rem; /* Reduced gap when stacked */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
   }
 
   .profile-pic {
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
+    border: 3px solid var(--accent);
   }
 
   .name {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 
   .title,
   .specialisation {
+    font-size: 0.88rem;
+  }
+
+  .contact,
+  .bio {
+    font-size: 0.9rem;
+  }
+
+  .bio-toggle {
     font-size: 0.85rem;
   }
 
-  .card {
-    padding: 1.5rem; /* Slightly less padding on mobile cards */
+  .footer {
+    font-size: 0.75rem;
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1.5rem 1rem;
   }
 
-.footer {
-  text-align: center;
-  font-size: 0.8rem; /* Slightly smaller font for more subtlety */
-  color: var(--text);
-  opacity: 0.7; /* Slightly more visible than 0.6, or go lower to 0.5 */
-  margin-top: 2.5rem; /* Reduced top margin */
-  padding-top: 1rem; /* Reduced top padding */
-  padding-bottom: 0.75rem; /* Added bottom padding for balanced spacing */
-  border-top: 1px solid rgba(var(--border-light-rgb), 0.3); /* Softer border color with transparency */
-  /* background-color: var(--background-subtle); */ /* Optional: Add a very subtle background color */
-}
+  .header {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-filter-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .directory {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .name {
+    font-size: 1.15rem;
+  }
+
+  .title,
+  .specialisation {
+    font-size: 0.8rem;
+  }
 }
 
 
