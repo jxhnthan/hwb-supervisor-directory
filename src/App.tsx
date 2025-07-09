@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { SupervisorCard } from './components/SupervisorCard';
-import supervisorsData from './data/supervisors.json';
+import supervisorsData from './data/supervisors.json'; // Assuming this is your original data
 
 // Define the type for a single badge
 type Badge = {
@@ -9,35 +9,34 @@ type Badge = {
   alt: string;
 };
 
-// Define the type for a supervisor, ensuring badges is an optional array of Badge
+// Define the type for a supervisor
 type Supervisor = {
   name: string;
   title: string;
   email: string;
   phone?: string;
   specialisation?: string;
-  bio?: string[]; // Bio is an array of strings
-  badges?: Badge[]; // Badges is an optional array of Badge objects
-  photoUrl?: string; // Add photoUrl if it's part of your data and used
+  bio?: string[];
+  badges?: Badge[]; // This will now always be these 4 badges after processing
+  photoUrl?: string;
 };
 
 function App() {
-  // Define the new badges to be added
-  const newBadges: Badge[] = [
+  // Define the EXACT four badges that EVERYONE should have
+  const mandatoryBadges: Badge[] = [
+    { src: "/images/SGF.jpg", alt: "SPS Singapore" },
     { src: "/images/PENGUIN.jpg", alt: "Penguin Badge" },
     { src: "/images/ELEPHANT.jpg", alt: "Elephant Badge" },
     { src: "/images/MONKEY.jpg", alt: "Monkey Badge" }
   ];
 
-  // Process the supervisorsData to ensure each supervisor has a badges array
-  // and append the new badges to it.
+  // Process the supervisorsData: for each supervisor, set their badges array
+  // to be exactly the mandatoryBadges.
   const processedSupervisors: Supervisor[] = (supervisorsData as Supervisor[]).map(supervisor => {
-    // Create a new array for badges, including existing ones and then the new ones
-    const updatedBadges = [
-      ...(supervisor.badges || []), // Use existing badges, or an empty array if none
-      ...newBadges // Add the new badges
-    ];
-    return { ...supervisor, badges: updatedBadges };
+    return {
+      ...supervisor,
+      badges: mandatoryBadges // Overwrite any existing badges with the mandatory set
+    };
   });
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,7 +59,7 @@ function App() {
       })
       .sort((a, b) => a.name.localeCompare(b.name));
     setFilteredAndSortedSupervisors(filtered);
-  }, [searchTerm]); // Dependency array: run when searchTerm changes
+  }, [searchTerm, processedSupervisors]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -102,7 +101,6 @@ function App() {
 }
 
 export default App;
-
 
 
 
