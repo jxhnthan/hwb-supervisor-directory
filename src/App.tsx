@@ -29,7 +29,9 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-penguin', src: "/images/PENGUIN.jpg", alt: "Penguin Badge" },
   { id: 'badge-monkey', src: "/images/MONKEY.jpg", alt: "Monkey Badge" },
   { id: 'badge-sushi', src: "/images/SUSHI.jpg", alt: "Sushi Badge" },
-  { id: 'badge-dog', src: "/images/DOG.png", alt: "Dog Badge" }
+  { id: 'badge-dog', src: "/images/DOG.png", alt: "Dog Badge" },
+  { id: 'badge-otter', src: "/images/OTTER.png", alt: "Otter Badge" },
+  { id: 'badge-mbs', src: "/images/MBS.png", alt: "MBS Badge" },
 ];
 
 function App() {
