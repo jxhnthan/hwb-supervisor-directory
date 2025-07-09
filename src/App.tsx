@@ -67,7 +67,6 @@ function App() {
           <p className="no-results">No supervisors found matching your search criteria.</p>
         )}
       </div>
-    </div>
   );
 }
 
