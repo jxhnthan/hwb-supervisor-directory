@@ -183,7 +183,7 @@ function App() {
           </button>
 
           <div id="sidebar-content" className="sidebar-content">
-            <h2 className="sidebar-header">Drag Badges to Profiles</h2>
+            <h2 className="sidebar-header">Drag badges to profiles!</h2>
             <div className="sidebar-badges-palette">
               {sidebarBadges.map((badge) => (
                 <div
@@ -197,7 +197,7 @@ function App() {
                 </div>
               ))}
             </div>
-            <p className="sidebar-tip">Fun badges!</p>
+            <p className="sidebar-tip"></p>
           </div>
         </div>
       </div>
