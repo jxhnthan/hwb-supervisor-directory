@@ -18,8 +18,7 @@
 
   /* Sidebar dimensions */
   --sidebar-width: 300px; /* The actual width of the sidebar when expanded */
-  /* Collapsed width is effectively 0px visually; the bar is the toggle button */
-  --sidebar-collapsed-width: 0px; 
+  --sidebar-collapsed-width: 0px; /* The effective width of the sidebar when visually 'collapsed' - it's off-screen */
   --toggle-button-size: 35px;
   /* This offset positions the button relative to the RIGHT edge of the viewport */
   --toggle-button-offset-from-right: 1.5rem; /* A small fixed offset from the viewport edge */
@@ -38,6 +37,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scrollbar from off-screen sidebar */
 }
 
 .app {
@@ -181,7 +181,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  /* NEW: Reduced gap for smaller badges */
+  gap: 0.6rem; /* Adjusted from 1rem */
   padding: 1rem;
   border: 1px dashed var(--border-mid);
   border-radius: 0.75rem;
@@ -303,14 +304,13 @@ body {
 /* Directory Grid */
 .directory {
   display: grid;
-  /* Standardized grid for main content to better accommodate sidebar */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax value */
   gap: 2.5rem;
   flex-grow: 1;
-  padding: 0 1rem; /* Added horizontal padding to the grid directly */
-  max-width: 100%; /* Ensure it respects its container's width */
-  box-sizing: border-box; /* Include padding in width calculation */
-  margin: 0 auto; /* Center the grid if it doesn't fill the space */
+  padding: 0 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 /* Supervisor Card Styling (Drop Target) */
@@ -355,8 +355,7 @@ body {
 
 .info {
   flex: 1;
-  /* Adjust info section to make space for the button if it overlaps */
-  padding-right: 3.5rem; /* ~56px (icon+padding) + 1.25rem (card padding) = approx 3.5rem */
+  padding-right: 3.5rem; /* Space for download button */
 }
 
 .supervisor-name {
@@ -391,19 +390,18 @@ body {
   border-radius: 1px;
 }
 
-/* Badges Container within Supervisor Card - NEW GRID LAYOUT */
+/* Badges Container within Supervisor Card - FIXED 3-COLUMN LAYOUT */
 .badges-container {
-  display: grid; /* Changed to grid */
-  /* This creates 3 columns, each sized to fit its content, effectively packing them */
-  grid-template-columns: repeat(3, auto); /* Change from 1fr to auto */
-  gap: 0.5rem; /* Gap between grid items */
+  display: grid;
+  /* This creates 3 columns, each sized to fit its content, and center the entire grid of columns */
+  grid-template-columns: repeat(3, auto); /* Changed to auto for compact packing */
+  gap: 0.5rem;
   margin-top: 15px;
-  min-height: 35px; /* Ensure space for badges even if none initially */
-  /* Use justify-content to center the *tracks* (columns) within the container */
-  justify-content: center; /* Center the whole group of badges horizontally */
-  align-items: center; /* Center items vertically within their grid cells */
-  width: 100%; /* Ensure container fills available width */
-  box-sizing: border-box; /* Include padding/border in width calculation */
+  min-height: 35px;
+  justify-content: center; /* Centers the entire grid horizontally within the container */
+  align-items: center; /* Centers items vertically within their grid cells */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Individual Badge Icon */
@@ -413,7 +411,6 @@ body {
   object-fit: contain;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
-  /* No need for margin: 0 auto; on badge-icon itself when parent uses justify-items: center or justify-content */
 }
 
 /* Make badges clickable on profiles */
