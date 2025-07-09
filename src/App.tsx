@@ -24,7 +24,6 @@ type Supervisor = {
 function App() {
   // Define the EXACT four badges that EVERYONE should have
   const mandatoryBadges: Badge[] = [
-    { src: "/images/SGF.jpg", alt: "SPS Singapore" },
     { src: "/images/PENGUIN.jpg", alt: "Penguin Badge" },
     { src: "/images/ELEPHANT.jpg", alt: "Elephant Badge" },
     { src: "/images/MONKEY.jpg", alt: "Monkey Badge" }
