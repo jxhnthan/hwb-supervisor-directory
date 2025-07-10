@@ -394,7 +394,7 @@ body {
 .badges-container {
   display: flex; /* Changed from grid to flex */
   flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: center; /* Center items horizontally */
+  justify-content: flex-start; /* Changed from center to flex-start for left alignment */
   align-items: center; /* Center items vertically within their line */
   gap: 0.5rem; /* Keep the gap between badges */
   margin-top: 0.5rem; /* Reduced margin-top to bring badges closer to text */
@@ -771,6 +771,7 @@ body {
     line-height: 1.3; /* Adjusted line-height for smallest screens */
   }
 }
+
 
 
 
