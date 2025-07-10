@@ -532,7 +532,7 @@ body {
 /* --- Draggable Badge Item (for sidebar badges) --- */
 .draggable-badge-item {
   cursor: grab;
-  padding: 0.75rem;
+  padding: 0.5rem; /* Reduced padding */
   border: 1px solid var(--border-light);
   border-radius: 0.5rem;
   background-color: var(--card-bg);
@@ -540,8 +540,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 75px;
-  height: 75px;
+  width: 50px; /* Reduced width */
+  height: 50px; /* Reduced height */
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -551,8 +551,8 @@ body {
 }
 
 .draggable-badge-item img.badge-icon {
-  width: 60px;
-  height: 60px;
+  width: 40px; /* Reduced image width */
+  height: 40px; /* Reduced image height */
   object-fit: contain;
   border-radius: 50%;
 }
