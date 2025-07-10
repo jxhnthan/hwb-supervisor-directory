@@ -99,23 +99,16 @@ body {
   align-items: center;
   /* Animate 'right' property for slide-in/out */
   transition: right var(--transition-speed) var(--transition-timing-function),
-              box-shadow var(--transition-speed) var(--transition-timing-function),
-              opacity var(--transition-speed) var(--transition-timing-function), /* Also transition opacity */
-              visibility var(--transition-speed) var(--transition-timing-function); /* Transition visibility */
+              box-shadow var(--transition-speed) var(--transition-timing-function); /* Only animate what truly changes */
   z-index: 100; /* Ensure sidebar is above other content */
 }
 
-/* Collapsed Sidebar State - Moves COMPLETELY OFF-SCREEN and truly hides it */
+/* Collapsed Sidebar State - Moves COMPLETELY OFF-SCREEN */
 .main-layout.sidebar-collapsed .sidebar {
   right: calc(-1 * var(--sidebar-width)); /* Moves sidebar completely off-screen to the right */
   box-shadow: none; /* No shadow when off-screen */
   border-left: none; /* No border when off-screen */
   padding: 0; /* No padding when off-screen */
-  width: 0; /* Explicitly set width to 0 */
-  min-width: 0; /* Ensure no min-width prevents it from shrinking */
-  opacity: 0; /* Make it completely transparent */
-  pointer-events: none; /* Make it unclickable */
-  visibility: hidden; /* Hide it from screen readers and layout */
 }
 
 
@@ -167,7 +160,7 @@ body {
   padding-top: 0; /* No padding from toggle button, as it's outside */
 }
 
-/* Hide content when sidebar is collapsed (but now the sidebar itself is also hidden) */
+/* Hide content when sidebar is collapsed */
 .main-layout.sidebar-collapsed .sidebar-content {
   opacity: 0;
   pointer-events: none;
@@ -358,8 +351,6 @@ body {
   flex-shrink: 0;
   border: 4px solid var(--profile-border-blue);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Added to clip content to the rounded border */
-  background-color: var(--card-bg); /* Ensures background behind image matches card */
 }
 
 .info {
@@ -656,41 +647,20 @@ body {
     padding-top: 0; /* No padding from previous button offset */
   }
 
-  /* Crucial: Ensure that even if 'sidebar-collapsed' class persists on small screens,
-     the sidebar is made visible and stacked, as intended by the responsive design.
-     This block overrides the "collapsed" state for mobile/tablet views.
-     (This block was the one previously discussed for removal, but keeping it ensures
-      sidebar is visible on small screens when responsive layout dictates it.)
-     However, the problem in the screenshot looks like a larger screen layout.
-     The fix below (adding `width: 0`, `visibility: hidden` etc. to .sidebar-collapsed .sidebar)
-     is for the large screen fixed sidebar behavior.
-  */
+  /* Crucial: Override collapsed state for smaller screens. Sidebar should always be fully visible. */
   .main-layout.sidebar-collapsed .sidebar {
-      /* On small screens, if sidebar-collapsed is somehow still applied,
-         we want it to be visible as part of the stacked layout.
-         However, the primary fix is to ensure the large screen collapse is robust.
-         This section is commented out to avoid conflict and rely on JS for small screen behavior.
-      */
-      /*
       width: auto;
       min-width: auto;
       max-width: none;
       padding: 2rem;
       transform: translateX(0);
       box-shadow: 0 6px 30px var(--shadow);
-      opacity: 1;
-      pointer-events: auto;
-      visibility: visible;
-      */
   }
   .main-layout.sidebar-collapsed .sidebar-content {
-      /*
       opacity: 1;
       pointer-events: auto;
       visibility: visible;
-      */
   }
-
 
   /* General responsive adjustments for main content */
   .search-filter-container {
