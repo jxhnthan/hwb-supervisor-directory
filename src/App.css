@@ -356,7 +356,7 @@ body {
 
 .info {
   flex: 1;
-  padding-right: 3.5rem; /* Space for download button */
+  padding-right: 2.5rem; /* Reduced padding-right to give text more space */
 }
 
 .supervisor-name {
