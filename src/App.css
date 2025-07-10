@@ -305,7 +305,7 @@ body {
 .directory {
   display: grid;
   /* Increased minmax value for wider cards */
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted from 300px to 350px */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
   flex-grow: 1;
   padding: 0 1rem;
@@ -363,7 +363,6 @@ body {
   margin: 0;
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--text-dark);
   line-height: 1.2;
 }
 
@@ -391,18 +390,18 @@ body {
   border-radius: 1px;
 }
 
-/* Badges Container within Supervisor Card - FIXED 3-COLUMN LAYOUT */
+/* Badges Container within Supervisor Card - IMPROVED FLEXBOX LAYOUT */
 .badges-container {
-  display: grid;
-  /* This creates 3 columns, each sized to fit its content, and center the entire grid of columns */
-  grid-template-columns: repeat(3, auto); /* Changed to auto for compact packing */
-  gap: 0.5rem;
-  margin-top: 15px;
-  min-height: 35px;
-  justify-content: center; /* Centers the entire grid horizontally within the container */
-  align-items: center; /* Centers items vertically within their grid cells */
+  display: flex; /* Changed from grid to flex */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically within their line */
+  gap: 0.5rem; /* Keep the gap between badges */
+  margin-top: 0.5rem; /* Reduced margin-top to bring badges closer to text */
+  min-height: 35px; /* Keep min-height for consistent spacing even with no badges */
   width: 100%;
   box-sizing: border-box;
+  /* Removed grid-template-columns as it's no longer a grid */
 }
 
 /* Individual Badge Icon */
@@ -430,8 +429,9 @@ body {
   color: var(--text-light);
   font-style: italic;
   padding-top: 5px;
-  grid-column: 1 / -1; /* Center this text across all grid columns */
+  /* No longer needs grid-column spanning, flex handles centering */
   text-align: center;
+  width: 100%; /* Ensure it takes full width to center text */
 }
 
 /* --- Contact & Bio --- */
@@ -771,5 +771,6 @@ body {
     line-height: 1.3; /* Adjusted line-height for smallest screens */
   }
 }
+
 
 
