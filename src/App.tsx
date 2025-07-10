@@ -38,6 +38,7 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-icecream', src: "/images/icecream.png", alt: "Ice Cream Badge" },
   { id: 'badge-marvel', src: "/images/MARVEL.png", alt: "Marvel Badge" },
   { id: 'badge-spiderman', src: "/images/SPIDERMAN.png", alt: "Spiderman Badge" }
+  { id: 'badge-pokeball', src: "/images/POKEBALL.png", alt: "Pokeball Badge" }
 ];
 
 function App() {
