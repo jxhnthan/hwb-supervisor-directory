@@ -305,7 +305,7 @@ body {
 .directory {
   display: grid;
   /* Increased minmax value for wider cards */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted from 300px to 350px */
   gap: 2.5rem;
   flex-grow: 1;
   padding: 0 1rem;
@@ -341,12 +341,12 @@ body {
 .supervisor-header {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced gap from 1.5rem to 1rem */
 }
 
 .supervisor-photo {
-  width: 80px;
-  height: 80px;
+  width: 70px; /* Reduced width from 80px to 70px */
+  height: 70px; /* Reduced height from 80px to 70px */
   object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
@@ -356,7 +356,7 @@ body {
 
 .info {
   flex: 1;
-  padding-right: 2.5rem; /* Reduced padding-right to give text more space */
+  padding-right: 2rem; /* Reduced padding-right from 2.5rem to 2rem */
 }
 
 .supervisor-name {
@@ -681,7 +681,7 @@ body {
 
   .directory {
     /* Adjusted minmax for smaller screens as well */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
   }
 
@@ -691,15 +691,15 @@ body {
   }
 
   .supervisor-header {
-    flex-direction: column;
+    flex-direction: column; /* Keep vertical stacking on smaller screens */
     align-items: center;
     text-align: center;
     gap: 0.8rem;
   }
 
   .supervisor-photo {
-    width: 70px;
-    height: 70px;
+    width: 60px; /* Reduced photo size for 900px breakpoint */
+    height: 60px;
     border: 3px solid var(--profile-border-blue);
   }
 
@@ -755,9 +755,9 @@ body {
   }
 
   .supervisor-photo {
-    width: 60px;
-    height: 60px;
-    border: 3px solid var(--profile-border-blue);
+    width: 50px; /* Reduced photo size for 480px breakpoint */
+    height: 50px;
+    border: 2px solid var(--profile-border-blue); /* Reduced border for smallest photo */
   }
 
   .supervisor-name {
