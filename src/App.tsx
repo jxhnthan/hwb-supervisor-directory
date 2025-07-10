@@ -39,7 +39,8 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-marvel', src: "/images/MARVEL.png", alt: "Marvel Badge" },
   { id: 'badge-spiderman', src: "/images/SPIDERMAN.png", alt: "Spiderman Badge" },
   { id: 'badge-polar', src: "/images/POLAR.png", alt: "Polar Bear Badge" },
-  { id: 'badge-santa', src: "/images/SANTA.png", alt: "Santa Claus Badge" }
+  { id: 'badge-santa', src: "/images/SANTA.png", alt: "Santa Claus Badge" },
+  { id: 'badge-terrier', src: "/images/TERRIER.png", alt: "Terrier Badge" },
 ];
 
 function App() {
