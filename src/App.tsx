@@ -44,7 +44,10 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-halloween', src: "/images/HALLOWEEN.png", alt: "Halloween Badge" },
   { id: 'badge-snowboard', src: "/images/SNOWBOARD.png", alt: "Snowboard Badge" },
   { id: 'badge-sherlock', src: "/images/SHERLOCK.png", alt: "Sherlock Badge" },
-  { id: 'badge-pet', src: "/images/PET.png", alt: "Pets Badge" }
+  { id: 'badge-pet', src: "/images/PET.png", alt: "Pets Badge" },
+  { id: 'badge-eagle', src: "/images/EAGLE.png", alt: "Eagle Badge" },
+  { id: 'badge-pool', src: "/images/POOL.png", alt: "Pool Badge" },
+  { id: 'badge-penguin', src: "/images/PI.png", alt: "Penguin Badge" }
 ];
 
 function App() {
