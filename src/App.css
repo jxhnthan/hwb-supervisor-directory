@@ -5,7 +5,7 @@
   /* Softer, slightly warmer background */
   --bg: #f9f7f6; /* A very light, warm off-white */
   /* Slightly off-white for cards, less stark */
-  --card-bg: #ffffff; /* Keeping pure white for now, as it's clean, but could be #fdfcfb if you want to push it */
+  --card-bg: #ffffff; /* Keeping pure white for now, but could be #fdfcfb if you want to push it */
   --text-dark: #3a3a3a; /* Softer dark grey, less harsh than pure black */
   --text-medium: #6b6b6b; /* Slightly warmer mid-grey */
   --text-light: #a0a0a0; /* Gentle light grey */
@@ -14,20 +14,20 @@
   --link: #4a6c65; /* A complementary, slightly darker link color */
   --shadow: rgba(0, 0, 0, 0.06); /* Lighter, softer shadow */
   --border-light: #eeebe9; /* Very light, warm border */
-  --border-mid: #dcd7d5; /* Softer mid-grey for dividers */
+  --border-mid: #dcd7d5; /* Softer mid-grey for stronger dividers */
 
-  /* Specific color for profile picture border - can be slightly softer */
+  /* Specific color for profile picture border */
   --profile-border-blue: #004d80; /* A richer, slightly less stark blue */
 
   /* Rounded corners for a softer feel */
-  --border-radius-soft: 0.75rem; /* Increased from 0.85rem for a bit more roundness */
+  --border-radius-soft: 0.75rem;
   --border-radius-pill: 999px;
 
-  /* Other dimensions */
+  /* Sidebar dimensions */
   --sidebar-width: 300px;
   --sidebar-collapsed-width: 0px;
-  --toggle-button-size: 38px; /* Slightly larger for easier tap */
-  --toggle-button-offset-from-right: 1.2rem; /* Closer to the edge */
+  --toggle-button-size: 38px;
+  --toggle-button-offset-from-right: 1.2rem;
 
   /* Transitions */
   --transition-speed: 0.3s;
@@ -55,74 +55,70 @@ body {
 .header {
   text-align: center;
   font-size: 2.8rem;
-  font-weight: 700; /* Keep it bold, but maybe consider 600 if you want less formality */
+  font-weight: 700;
   margin-bottom: 3.5rem;
-  letter-spacing: -0.02em; /* Slightly less tight spacing */
+  letter-spacing: -0.02em;
   color: var(--text-dark);
-  padding: 3.5rem 2rem 0; /* A bit more breathing room at the top */
+  padding: 3.5rem 2rem 0;
 }
 
 /* --- Main Layout for Content + Sidebar --- */
 .main-layout {
   display: flex;
   flex: 1;
-  max-width: 1100px; /* Max width of the overall content area (main content + sidebar space) */
+  max-width: 1100px; /* Adjust as needed based on your total content width */
   margin: 0 auto;
   padding: 0 2rem 3rem;
-  position: relative; /* Allows main-content to push against fixed sidebar with margin */
+  position: relative;
 }
 
 /* Main Content Area (Left) */
 .main-content {
-  flex: 1; /* Allows main content to fill available space */
+  flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  /* Margin-right to make space for the fixed sidebar when it's OPEN */
-  margin-right: var(--sidebar-width); /* Space for expanded sidebar */
+  margin-right: var(--sidebar-width);
   transition: margin-right var(--transition-speed) var(--transition-timing-function);
 }
 
-/* Adjust margin of main content when sidebar is collapsed (NO margin, as sidebar is OFF-SCREEN) */
 .main-layout.sidebar-collapsed .main-content {
-  margin-right: 0; /* Remove margin when sidebar is collapsed, it's off-screen */
+  margin-right: 0;
 }
 
 
 /* Sidebar Styling (Right) - FIXED POSITIONED */
 .sidebar {
-  position: fixed; /* Stays in viewport as user scrolls */
-  top: 0; /* Align to top of viewport */
-  right: 0; /* Pin to right edge of viewport when EXPANDED */
-  height: 100vh; /* Take full viewport height */
-  width: var(--sidebar-width); /* Expanded width */
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
   background-color: var(--card-bg);
   padding: 2rem;
-  box-shadow: -6px 0 30px var(--shadow); /* Shadow on the left side */
-  border-left: 1px solid var(--border-light); /* Left border */
+  box-shadow: -6px 0 30px var(--shadow);
+  border-left: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Animate 'right' property for slide-in/out */
   transition: right var(--transition-speed) var(--transition-timing-function),
-              box-shadow var(--transition-speed) var(--transition-timing-function); /* Only animate what truly changes */
-  z-index: 100; /* Ensure sidebar is above other content */
+              box-shadow var(--transition-speed) var(--transition-timing-function);
+  z-index: 100;
 }
 
-/* Collapsed Sidebar State - Moves COMPLETELY OFF-SCREEN */
 .main-layout.sidebar-collapsed .sidebar {
-  right: calc(-1 * var(--sidebar-width)); /* Moves sidebar completely off-screen to the right */
-  box-shadow: none; /* No shadow when off-screen */
-  border-left: none; /* No border when off-screen */
-  padding: 0; /* No padding when off-screen */
+  right: calc(-1 * var(--sidebar-width));
+  box-shadow: none;
+  border-left: none;
+  padding: 0;
 }
 
 
 /* Sidebar Toggle Button - FIXED TO THE VIEWPORT */
 .sidebar-toggle {
-  position: fixed; /* Fixed to viewport, independent of sidebar's movement */
-  top: 2rem; /* Consistent vertical position */
-  right: var(--toggle-button-offset-from-right); /* Pinned to the far right of the viewport */
+  position: fixed;
+  top: 2rem;
+  right: var(--toggle-button-offset-from-right);
   background: var(--accent);
   color: #fff;
   border: none;
@@ -133,23 +129,21 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.4rem; /* Larger arrow */
+  font-size: 1.4rem;
   line-height: 1;
   padding: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Softer, more present shadow */
-  /* Animate 'transform' (for rotation) only */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s ease, transform 0.2s ease;
-  z-index: 102; /* Ensure it's above the sidebar */
+  z-index: 102;
 }
 
 .sidebar-toggle:hover {
-  background-color: #6a9c90; /* Slightly darker hover for accent */
+  background-color: #6a9c90;
   transform: scale(1.08);
 }
 
-/* Adjust toggle button rotation when sidebar is collapsed */
 .main-layout.sidebar-collapsed .sidebar-toggle {
-  transform: rotate(180deg); /* Rotate arrow when collapsed */
+  transform: rotate(180deg);
 }
 
 
@@ -158,12 +152,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Take full width of sidebar's inner padding */
+  width: 100%;
   height: 100%;
   opacity: 1;
   transition: opacity var(--transition-speed) var(--transition-timing-function);
-  overflow-y: auto; /* Enable scrolling for sidebar content if it's too long */
-  padding-top: 0; /* No padding from toggle button, as it's outside */
+  overflow-y: auto;
+  padding-top: 0;
 }
 
 /* Hide content when sidebar is collapsed */
@@ -187,8 +181,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* NEW: Reduced gap for smaller badges */
-  gap: 0.6rem; /* Adjusted from 1rem */
+  gap: 0.6rem;
   padding: 1rem;
   border: 1px dashed var(--border-mid);
   border-radius: 0.75rem;
@@ -226,7 +219,7 @@ body {
   width: 100%;
   font-size: 1.05rem;
   border: 1px solid var(--border-light);
-  border-radius: var(--border-radius-pill); /* Fully rounded */
+  border-radius: var(--border-radius-pill);
   background-color: var(--card-bg);
   color: var(--text-dark);
   box-shadow: 0 4px 10px var(--shadow);
@@ -241,7 +234,7 @@ body {
 .search-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.2); /* Use new accent color for focus glow */
+  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.2);
 }
 
 .search-icon {
@@ -273,23 +266,78 @@ body {
   color: var(--text-dark);
 }
 
+/* REFINED FOR SINGLE LINE: Specialisation Filters Container */
 .specialisation-filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
+  flex-wrap: nowrap; /* 🔥 CRUCIAL: Prevent wrapping to keep them on a single line */
+  justify-content: center; /* Center buttons horizontally if they fit */
+  gap: 0.5rem;
+  width: 100%; /* Take full available width */
+  padding: 1rem;
+  background-color: var(--bg);
+  border-radius: var(--border-radius-soft);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-light);
+  align-items: center;
+  overflow-x: auto; /* Allows horizontal scrolling if items don't fit */
+  -webkit-overflow-scrolling: touch; /* Improves scrolling performance on touch devices */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--text-light) transparent; /* Firefox */
 }
 
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.specialisation-filters::-webkit-scrollbar {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.specialisation-filters::-webkit-scrollbar-track {
+  background: transparent; /* Make track transparent */
+  border-radius: 10px;
+}
+
+.specialisation-filters::-webkit-scrollbar-thumb {
+  background: var(--border-mid); /* Color of the scroll thumb */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Padding around the thumb */
+  background-clip: padding-box; /* Makes padding transparent */
+}
+
+.specialisation-filters::-webkit-scrollbar-thumb:hover {
+  background: var(--text-medium); /* Darker on hover */
+}
+
+
+/* REFINED: Filter label within the filter container */
+.filter-label {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  font-weight: 600;
+  margin-right: 0.7rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding-right: 0.5rem; /* Padding to the right of the label to prevent it from sticking to the scrollbar edge */
+  flex-shrink: 0; /* Prevent the label from shrinking on small screens */
+}
+
+/* REFINED: Individual Filter Buttons */
 .filter-button {
   padding: 0.6rem 1.2rem;
   border: 1px solid var(--border-mid);
-  border-radius: 8px; /* Slightly more rounded rectangle */
+  border-radius: 8px;
   background-color: var(--card-bg);
   color: var(--text-medium);
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevents buttons from shrinking if space is tight */
 }
 
 .filter-button:hover:not(.active) {
@@ -304,13 +352,38 @@ body {
   color: #ffffff;
   border-color: var(--accent);
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(94, 139, 126, 0.4); /* Stronger but softer glow */
+  box-shadow: 0 2px 10px rgba(94, 139, 126, 0.4);
 }
+
+/* REFINED: Clear Filters Button */
+.clear-filters-button {
+  padding: 0.6rem 1.2rem;
+  background: none;
+  border: 1px dashed var(--border-mid);
+  border-radius: 8px;
+  color: var(--text-medium);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevents this button from shrinking if space is tight */
+}
+
+.clear-filters-button:hover {
+  background-color: var(--border-light);
+  border-color: var(--text-dark);
+  color: var(--text-dark);
+}
+
 
 /* Directory Grid */
 .directory {
   display: grid;
-  /* Increased minmax value for wider cards */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
   flex-grow: 1;
@@ -323,14 +396,14 @@ body {
 /* Supervisor Card Styling (Drop Target) */
 .supervisor-card {
   background: var(--card-bg);
-  border-radius: var(--border-radius-soft); /* More rounded corners */
+  border-radius: var(--border-radius-soft);
   padding: 2rem 2.25rem;
-  box-shadow: 0 8px 30px var(--shadow); /* Slightly more pronounced but softer shadow */
+  box-shadow: 0 8px 30px var(--shadow);
   border: 1px solid var(--border-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
-  position: relative; /* Needed for positioning download button */
+  position: relative;
 }
 
 .supervisor-card:hover {
@@ -341,18 +414,18 @@ body {
 /* Style for the card when a badge is dragged over it */
 .supervisor-card.drag-over-target {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.25), 0 6px 30px var(--shadow); /* Use new accent color */
+  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.25), 0 6px 30px var(--shadow);
 }
 
 .supervisor-header {
   display: flex;
   align-items: flex-start;
-  gap: 1rem; /* Reduced gap from 1.5rem to 1rem */
+  gap: 1rem;
 }
 
 .supervisor-photo {
-  width: 70px; /* Reduced width from 80px to 70px */
-  height: 70px; /* Reduced height from 80px to 70px */
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
@@ -362,7 +435,7 @@ body {
 
 .info {
   flex: 1;
-  padding-right: 2rem; /* Reduced padding-right from 2.5rem to 2rem */
+  padding-right: 2rem;
 }
 
 .supervisor-name {
@@ -378,7 +451,7 @@ body {
   color: var(--text-medium);
   opacity: 0.9;
   font-size: 0.95rem;
-  line-height: 1.5; /* Increased line-height for better readability of wrapped text */
+  line-height: 1.5;
 }
 
 .divider {
@@ -398,24 +471,23 @@ body {
 
 /* Badges Container within Supervisor Card - IMPROVED FLEXBOX LAYOUT */
 .badges-container {
-  display: flex; /* Changed from grid to flex */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: flex-start; /* Changed from center to flex-start for left alignment */
-  align-items: center; /* Center items vertically within their line */
-  gap: 0.5rem; /* Keep the gap between badges */
-  margin-top: 0.5rem; /* Reduced margin-top to bring badges closer to text */
-  min-height: 35px; /* Keep min-height for consistent spacing even with no badges */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  min-height: 35px;
   width: 100%;
   box-sizing: border-box;
-  /* Removed grid-template-columns as it's no longer a grid */
 }
 
 /* Individual Badge Icon */
 .badge-icon {
-  width: 28px; /* Badges in cards are smaller */
+  width: 28px;
   height: 28px;
   object-fit: contain;
-  border-radius: 8px; /* Slightly more rounded than 6px */
+  border-radius: 8px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
 }
 
@@ -426,7 +498,7 @@ body {
 }
 
 .badge-icon.badge-clickable:hover {
-  transform: scale(1.1) translateY(-2px); /* Add a slight lift */
+  transform: scale(1.1) translateY(-2px);
   opacity: 0.9;
 }
 
@@ -435,9 +507,8 @@ body {
   color: var(--text-light);
   font-style: italic;
   padding-top: 5px;
-  /* No longer needs grid-column spanning, flex handles centering */
   text-align: center;
-  width: 100%; /* Ensure it takes full width to center text */
+  width: 100%;
 }
 
 /* --- Contact & Bio --- */
@@ -504,31 +575,31 @@ body {
 /* --- Download Profile Button (Sleeker Icon Style) --- */
 .download-profile-button {
   position: absolute;
-  top: 1.25rem; /* Adjusted vertical position */
-  right: 1.25rem; /* Adjusted horizontal position */
-  background: none; /* Make background transparent */
-  color: var(--text-light); /* Subtle color */
-  border: 1px solid transparent; /* Transparent border, will show on hover */
-  padding: 0.4rem; /* Smaller padding */
-  border-radius: 5px; /* Slight rounding */
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  color: var(--text-light);
+  border: 1px solid transparent;
+  padding: 0.4rem;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1.2rem; /* Larger icon size */
-  line-height: 1; /* For better icon centering */
-  box-shadow: none; /* No shadow by default */
+  font-size: 1.2rem;
+  line-height: 1;
+  box-shadow: none;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 2; /* Ensure it's above other card content like name/title */
+  z-index: 2;
 }
 
 .download-profile-button:hover:not(:disabled) {
-  color: var(--accent); /* Accent color on hover */
-  background-color: var(--border-light); /* Light background on hover */
-  border-color: var(--border-mid); /* Border appears on hover */
-  transform: translateY(-1px) scale(1.05); /* Slight lift and scale */
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+  color: var(--accent);
+  background-color: var(--border-light);
+  border-color: var(--border-mid);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .download-profile-button:disabled {
-  color: var(--text-light); /* Grey out icon when disabled */
+  color: var(--text-light);
   cursor: not-allowed;
   opacity: 0.6;
   background-color: transparent;
@@ -539,38 +610,30 @@ body {
 /* --- Draggable Badge Item (for sidebar badges) --- */
 .draggable-badge-item {
   cursor: grab;
-  padding: 0.5rem; /* Reduced padding */
+  padding: 0.5rem;
   border: 1px solid var(--border-light);
-  border-radius: 0.7rem; /* More rounded for grab-able items */
+  border-radius: 0.7rem;
   background-color: var(--card-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55px; /* Slightly larger for easier grabbing */
-  height: 55px; /* Slightly larger for easier grabbing */
+  width: 55px;
+  height: 55px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .draggable-badge-item:hover {
-  background-color: var(--border-light); /* Lighter, warmer hover */
-  transform: translateY(-3px) scale(1.03); /* More noticeable lift */
+  background-color: var(--border-light);
+  transform: translateY(-3px) scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .draggable-badge-item img.badge-icon {
-  width: 45px; /* Adjusted image size for larger container */
-  height: 45px; /* Adjusted image size for larger container */
+  width: 45px;
+  height: 45px;
   object-fit: contain;
   border-radius: 50%;
-}
-
-/* Native Drag-and-Drop Specific Styles */
-.draggable-badge-item.dragging-source { /* Style for the badge being dragged from the sidebar */
-  opacity: 0.4;
-  border-color: var(--accent);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(0.95);
 }
 
 /* --- No Results Message --- */
@@ -585,77 +648,71 @@ body {
 /* --- Footer --- */
 .footer {
   text-align: center;
-  font-size: 0.85rem; /* Slightly larger */
-  color: var(--text-medium); /* Less faded than --text-light */
+  font-size: 0.85rem;
+  color: var(--text-medium);
   opacity: 0.9;
-  margin-top: 5rem; /* More space from content */
+  margin-top: 5rem;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   border-top: 1px solid var(--border-light);
 }
 
 /* === Responsive Tweaks === */
-@media (max-width: 900px) { /* Main layout switches to column on screens <= 900px */
+@media (max-width: 900px) {
   .header {
     font-size: 2.2rem;
     margin-bottom: 2.5rem;
     padding: 2rem 1.25rem 0;
   }
 
-  /* When screens are small, the sidebar will stack and expand to full width. */
   .main-layout {
-    flex-direction: column; /* Stack main content and sidebar vertically */
+    flex-direction: column;
     padding: 0 1.25rem 2rem;
     gap: 2rem;
   }
 
-  /* Main content on smaller screens (takes full width) */
   .main-content {
-    margin-right: 0; /* Remove fixed margin on small screens */
+    margin-right: 0;
   }
 
-  /* Sidebar styling when stacked (no longer fixed/sticky, full width) */
   .sidebar {
-    position: static; /* Remove fixed position when stacked */
-    height: auto; /* Allow height to adjust */
-    width: auto; /* Allow width to adjust */
-    min-width: auto; /* Reset explicit min-width */
-    max-width: none; /* Reset explicit max-width */
-    top: auto; /* Remove top offset */
-    right: auto; /* Remove right offset */
-    transform: translateX(0); /* Remove any transform */
-    padding: 2rem; /* Restore full padding on smaller screens */
-    box-shadow: 0 6px 30px var(--shadow); /* Restore full shadow */
-    border-left: none; /* Remove left border */
-    border-top: 1px solid var(--border-light); /* Add top border for separation */
-    flex-direction: row; /* Layout sidebar content horizontally for smaller screens */
-    flex-wrap: wrap;
+    position: static;
+    height: auto;
+    width: auto;
+    min-width: auto;
+    max-width: none;
+    top: auto;
+    right: auto;
+    transform: translateX(0);
+    padding: 2rem;
+    box-shadow: 0 6px 30px var(--shadow);
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+    flex-direction: row; /* Keep flex-direction row for horizontal display */
+    flex-wrap: wrap; /* Allow wrapping on this breakpoint for sidebar content */
     justify-content: center;
-    gap: 1.5rem; /* Gap between sections in stacked sidebar */
+    gap: 1.5rem;
   }
 
-  /* Adjust sidebar toggle position for stacked layout */
   .sidebar-toggle {
-    position: static; /* No longer fixed */
+    position: static;
     margin-right: 1rem;
     margin-bottom: 1rem;
     align-self: flex-start;
-    right: auto; /* Reset right property */
-    transform: none; /* Reset rotation */
+    right: auto;
+    transform: none;
   }
 
-  /* Sidebar content when stacked (always visible and interactive) */
   .sidebar-content {
     width: auto;
     flex-grow: 1;
-    flex-direction: column;
+    flex-direction: column; /* This is for the content INSIDE sidebar-content (header, palette, tip) */
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
-    padding-top: 0; /* No padding from previous button offset */
+    padding-top: 0;
   }
 
-  /* Crucial: Override collapsed state for smaller screens. Sidebar should always be fully visible. */
   .main-layout.sidebar-collapsed .sidebar {
       width: auto;
       min-width: auto;
@@ -664,78 +721,13 @@ body {
       transform: translateX(0);
       box-shadow: 0 6px 30px var(--shadow);
   }
-  .main-layout.sidebar-collapsed .sidebar-content {
-      opacity: 1;
-      pointer-events: auto;
-      visibility: visible;
+
+  /* Specific adjustment for single-line filters on smaller screens when they are NOT fixed */
+  .specialisation-filters {
+    justify-content: flex-start; /* Align left when scrolling on mobile */
+    padding: 0.75rem; /* Slightly less padding on smaller screens */
   }
 
-  /* General responsive adjustments for main content */
-  .search-filter-container {
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .search-input {
-    max-width: 100%;
-    font-size: 0.95rem;
-  }
-
-  .filter-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .directory {
-    /* Adjusted minmax for smaller screens as well */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .supervisor-card {
-    padding: 1.5rem 1.5rem;
-    border-radius: 0.75rem;
-  }
-
-  .supervisor-header {
-    flex-direction: column; /* Keep vertical stacking on smaller screens */
-    align-items: center;
-    text-align: center;
-    gap: 0.8rem;
-  }
-
-  .supervisor-photo {
-    width: 60px; /* Reduced photo size for 900px breakpoint */
-    height: 60px;
-    border: 3px solid var(--profile-border-blue);
-  }
-
-  .supervisor-name {
-    font-size: 1.3rem;
-  }
-
-  .supervisor-title,
-  .supervisor-specialisation {
-    margin: 0.4rem 0 0.8rem;
-    font-size: 0.88rem;
-    line-height: 1.4; /* Slightly increased line-height for smaller screens */
-  }
-
-  .contact,
-  .supervisor-bio {
-    font-size: 0.9rem;
-  }
-
-  .bio-toggle {
-    font-size: 0.85rem;
-  }
-
-  .footer {
-    font-size: 0.75rem;
-    margin-top: 3rem;
-    padding-top: 1.2rem;
-    padding-bottom: 0.8rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -762,9 +754,9 @@ body {
   }
 
   .supervisor-photo {
-    width: 50px; /* Reduced photo size for 480px breakpoint */
+    width: 50px;
     height: 50px;
-    border: 2px solid var(--profile-border-blue); /* Reduced border for smallest photo */
+    border: 2px solid var(--profile-border-blue);
   }
 
   .supervisor-name {
@@ -775,7 +767,23 @@ body {
   .supervisor-specialisation {
     margin: 0.4rem 0 0.7rem;
     font-size: 0.8rem;
-    line-height: 1.3; /* Adjusted line-height for smallest screens */
+    line-height: 1.3;
+  }
+
+  .specialisation-filters {
+    padding: 0.5rem; /* Even less padding on very small screens */
+    gap: 0.4rem; /* Even smaller gap */
+  }
+
+  .filter-label {
+    margin-right: 0.5rem;
+  }
+
+  .filter-button,
+  .clear-filters-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    min-height: 34px; /* Slightly smaller buttons */
   }
 }
 
