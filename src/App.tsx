@@ -16,7 +16,7 @@ type Supervisor = {
   title: string;
   email: string;
   phone?: string;
-  specialisation?: string;
+  specialisation?: string; // This will be used for filtering
   bio?: string[];
   badges: Badge[]; // Each supervisor now has their own mutable badges array
   photoUrl?: string;
@@ -50,37 +50,53 @@ const sidebarBadges: Badge[] = [
   { id: 'badge-penguinic', src: "/images/PI.png", alt: "Penguin Icecream Badge" },
   { id: 'badge-corgi', src: "/images/DANCE.png", alt: "Dancing Badge" },
   { id: 'badge-dance', src: "/images/CORGI.png", alt: "Corgi Badge" },
-{ id: 'badge-fc', src: "/images/FC.png", alt: "Fortune Cookie Badge" }
+  { id: 'badge-fc', src: "/images/FC.png", alt: "Fortune Cookie Badge" }
 ];
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  // `supervisors` holds the main data, including dynamically added badges
   const [supervisors, setSupervisors] = useState<Supervisor[]>([]);
   const [filteredAndSortedSupervisors, setFilteredAndSortedSupervisors] = useState<Supervisor[]>([]);
-  // State for sidebar collapse/expand - Starts TRUE (collapsed)
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
-  // Initialize supervisors state when the component mounts
-  // This ensures existing badges from JSON are preserved and 'badges' array always exists
+  // State for active specialization filters
+  const [activeSpecialisationFilters, setActiveSpecialisationFilters] = useState<string[]>([]);
+  // State to hold all unique specializations found in data
+  const [allSpecialisations, setAllSpecialisations] = useState<string[]>([]);
+
+  // Initialize supervisors state and extract unique specialisations when the component mounts
   useEffect(() => {
     const initialProcessedSupervisors = (rawSupervisorsData as Supervisor[]).map(s => ({
       ...s,
       badges: s.badges || [] // If 'badges' is missing in JSON, provide an empty array
     }));
     setSupervisors(initialProcessedSupervisors);
+
+    // Extract unique specializations from the initial data
+    const uniqueSpecs = new Set<string>();
+    initialProcessedSupervisors.forEach(s => {
+      if (s.specialisation) {
+        // Assuming specialisation can be a comma-separated string (e.g., "Counselling Psychologist, Family Therapy")
+        s.specialisation.split(',').forEach(spec => {
+          const trimmedSpec = spec.trim();
+          if (trimmedSpec) {
+            uniqueSpecs.add(trimmedSpec);
+          }
+        });
+      }
+    });
+    // Sort the specializations alphabetically for consistent display
+    setAllSpecialisations(Array.from(uniqueSpecs).sort());
   }, []); // Empty dependency array means this runs only once on mount
 
   // --- Native Drag-and-Drop Handlers for SIDEBAR Badges (Source) ---
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, badgeId: string) => {
     e.dataTransfer.setData("text/plain", badgeId); // Store the badge's ID for retrieval on drop
-    // Optional: Add a class to the dragged item for visual feedback
-    e.currentTarget.classList.add('dragging-source');
+    e.currentTarget.classList.add('dragging-source'); // Add visual feedback class
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
-    // Optional: Remove the visual feedback class when dragging ends
-    e.currentTarget.classList.remove('dragging-source');
+    e.currentTarget.classList.remove('dragging-source'); // Remove visual feedback class
   };
   // --- End Native Drag-and-Drop Handlers for SIDEBAR Badges ---
 
@@ -125,24 +141,56 @@ function App() {
     });
   };
 
+  // Handler for specialization filter buttons
+  const handleSpecialisationFilterToggle = (specialisation: string) => {
+    setActiveSpecialisationFilters(prevFilters => {
+      if (prevFilters.includes(specialisation)) {
+        // If already active, remove it
+        return prevFilters.filter(filter => filter !== specialisation);
+      } else {
+        // If not active, add it
+        return [...prevFilters, specialisation];
+      }
+    });
+  };
+
+
   // Effect to filter and sort supervisors for display in the directory
   useEffect(() => {
     const filtered = supervisors
       .filter((supervisor) => {
-        if (searchTerm === '') return true; // Show all if no search term
-
         const lowerSearchTerm = searchTerm.toLowerCase();
-        return (
+
+        // 1. Search Term Filter
+        const matchesSearchTerm = (
+          searchTerm === '' || // Show all if no search term
           supervisor.name.toLowerCase().includes(lowerSearchTerm) ||
           supervisor.title.toLowerCase().includes(lowerSearchTerm) ||
           (supervisor.specialisation &&
             supervisor.specialisation.toLowerCase().includes(lowerSearchTerm)) ||
           supervisor.email.toLowerCase().includes(lowerSearchTerm)
         );
+
+        // 2. Specialisation Filter (FIXED LOGIC)
+        const matchesSpecialisationFilter = (
+          activeSpecialisationFilters.length === 0 || // If no filters are active, this condition passes
+          (
+            // Ensure supervisor.specialisation exists before attempting to split or compare
+            supervisor.specialisation &&
+            supervisor.specialisation.split(',').some(specPart => // Split and check each part of the specialization string
+              activeSpecialisationFilters.some(filter =>
+                specPart.trim().toLowerCase().includes(filter.toLowerCase())
+              )
+            )
+          )
+        );
+
+        // A supervisor must pass BOTH the search term filter AND the specialization filter
+        return matchesSearchTerm && matchesSpecialisationFilter;
       })
       .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically by name
     setFilteredAndSortedSupervisors(filtered);
-  }, [searchTerm, supervisors]); // Re-run filtering/sorting when search term or supervisor data changes
+  }, [searchTerm, supervisors, activeSpecialisationFilters]); // Re-run when search term, supervisor data, or active filters change
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -150,7 +198,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="header">Clinical Supervisor Directory</h1>
+      <h1 className="header">Clinical Supervisor Directory</h1> {/* Original text */}
 
       {/* Main Layout Container: Conditional class for sidebar collapse */}
       <div className={`main-layout ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
@@ -159,12 +207,37 @@ function App() {
           <div className="search-filter-container">
             <input
               type="text"
-              placeholder="Search by name, title, or specialisation..."
+              placeholder="Search by name, title, or specialisation..." // Original placeholder
               value={searchTerm}
               onChange={handleSearchChange}
               className="search-input"
               aria-label="Search supervisors"
             />
+
+            {/* Specialisation Filters Section (retained) */}
+            {allSpecialisations.length > 0 && (
+              <div className="specialisation-filters">
+                <span className="filter-label">Filter by Expertise:</span>
+                {allSpecialisations.map(spec => (
+                  <button
+                    key={spec}
+                    className={`filter-button ${activeSpecialisationFilters.includes(spec) ? 'active' : ''}`}
+                    onClick={() => handleSpecialisationFilterToggle(spec)}
+                  >
+                    {spec}
+                  </button>
+                ))}
+                {/* Clear Filters Button - appears only when filters are active */}
+                {activeSpecialisationFilters.length > 0 && (
+                  <button
+                    className="clear-filters-button"
+                    onClick={() => setActiveSpecialisationFilters([])}
+                  >
+                    Clear All
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Directory Grid */}
@@ -179,7 +252,7 @@ function App() {
                 />
               ))
             ) : (
-              <p className="no-results">No supervisors found matching your search criteria.</p>
+              <p className="no-results">No supervisors found matching your search criteria.</p> 
             )}
           </div>
         </div>
@@ -192,13 +265,13 @@ function App() {
             onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
             aria-expanded={!isSidebarCollapsed}
             aria-controls="sidebar-content"
-            title={isSidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+            title={isSidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'} // Original title
           >
             {isSidebarCollapsed ? '»' : '«'} {/* Unicode right/left pointing double angle quotation mark */}
           </button>
 
           <div id="sidebar-content" className="sidebar-content">
-            <h2 className="sidebar-header">Badges!</h2>
+            <h2 className="sidebar-header">Badges!</h2> {/* Original text */}
             <div className="sidebar-badges-palette">
               {sidebarBadges.map((badge) => (
                 <div
@@ -212,14 +285,14 @@ function App() {
                 </div>
               ))}
             </div>
-            <p className="sidebar-tip">Try dragging badges to profiles!</p>
+            <p className="sidebar-tip">Try dragging badges to profiles!</p> {/* Original text */}
           </div>
         </div>
       </div>
 
       {/* Footer */}
       <div className="footer">
-        Last updated: July 9, 2025. NUS Health and Wellbeing 2025.
+        Last updated: July 9, 2025. NUS Health and Wellbeing 2025. {/* Original text */}
       </div>
     </div>
   );
