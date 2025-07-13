@@ -2,26 +2,32 @@
 
 :root {
   /* --- Colors --- */
-  --bg: #f5f5f5; /* Lighter, cleaner background */
-  --card-bg: #ffffff; /* Pure white for crispness */
-  --text-dark: #333333; /* Stronger charcoal for main text */
-  --text-medium: #555555; /* Slightly lighter for secondary text */
-  --text-light: #888888; /* Even lighter for subtle details */
-  --accent: #6c757d; /* A more subdued, elegant grey-blue for accents */
-  --link: #495057; /* Darker, more prominent link color */
-  --shadow: rgba(0, 0, 0, 0.08); /* Slightly more pronounced but soft shadow */
-  --border-light: #e0e0e0; /* Clean, light grey border */
-  --border-mid: #cccccc; /* Mid-grey for stronger dividers */
+  /* Softer, slightly warmer background */
+  --bg: #f9f7f6; /* A very light, warm off-white */
+  /* Slightly off-white for cards, less stark */
+  --card-bg: #ffffff; /* Keeping pure white for now, as it's clean, but could be #fdfcfb if you want to push it */
+  --text-dark: #3a3a3a; /* Softer dark grey, less harsh than pure black */
+  --text-medium: #6b6b6b; /* Slightly warmer mid-grey */
+  --text-light: #a0a0a0; /* Gentle light grey */
+  /* Primary Accent: Warmer, more inviting shade of blue or a soft green/teal */
+  --accent: #5e8b7e; /* A calming, friendly teal-green */
+  --link: #4a6c65; /* A complementary, slightly darker link color */
+  --shadow: rgba(0, 0, 0, 0.06); /* Lighter, softer shadow */
+  --border-light: #eeebe9; /* Very light, warm border */
+  --border-mid: #dcd7d5; /* Softer mid-grey for dividers */
 
-  /* Specific color for profile picture border */
-  --profile-border-blue: #003D7C;
+  /* Specific color for profile picture border - can be slightly softer */
+  --profile-border-blue: #004d80; /* A richer, slightly less stark blue */
 
-  /* Sidebar dimensions */
-  --sidebar-width: 300px; /* The actual width of the sidebar when expanded */
-  --sidebar-collapsed-width: 0px; /* The effective width of the sidebar when visually 'collapsed' - it's off-screen */
-  --toggle-button-size: 35px;
-  /* This offset positions the button relative to the RIGHT edge of the viewport */
-  --toggle-button-offset-from-right: 1.5rem; /* A small fixed offset from the viewport edge */
+  /* Rounded corners for a softer feel */
+  --border-radius-soft: 0.75rem; /* Increased from 0.85rem for a bit more roundness */
+  --border-radius-pill: 999px;
+
+  /* Other dimensions */
+  --sidebar-width: 300px;
+  --sidebar-collapsed-width: 0px;
+  --toggle-button-size: 38px; /* Slightly larger for easier tap */
+  --toggle-button-offset-from-right: 1.2rem; /* Closer to the edge */
 
   /* Transitions */
   --transition-speed: 0.3s;
@@ -49,11 +55,11 @@ body {
 .header {
   text-align: center;
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 700; /* Keep it bold, but maybe consider 600 if you want less formality */
   margin-bottom: 3.5rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em; /* Slightly less tight spacing */
   color: var(--text-dark);
-  padding: 3rem 2rem 0;
+  padding: 3.5rem 2rem 0; /* A bit more breathing room at the top */
 }
 
 /* --- Main Layout for Content + Sidebar --- */
@@ -127,18 +133,18 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Larger arrow */
   line-height: 1;
   padding: 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Softer, more present shadow */
   /* Animate 'transform' (for rotation) only */
   transition: background-color 0.2s ease, transform 0.2s ease;
   z-index: 102; /* Ensure it's above the sidebar */
 }
 
 .sidebar-toggle:hover {
-  background-color: #5a6268;
-  transform: scale(1.05);
+  background-color: #6a9c90; /* Slightly darker hover for accent */
+  transform: scale(1.08);
 }
 
 /* Adjust toggle button rotation when sidebar is collapsed */
@@ -220,7 +226,7 @@ body {
   width: 100%;
   font-size: 1.05rem;
   border: 1px solid var(--border-light);
-  border-radius: 999px;
+  border-radius: var(--border-radius-pill); /* Fully rounded */
   background-color: var(--card-bg);
   color: var(--text-dark);
   box-shadow: 0 4px 10px var(--shadow);
@@ -235,7 +241,7 @@ body {
 .search-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(108, 117, 125, 0.25);
+  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.2); /* Use new accent color for focus glow */
 }
 
 .search-icon {
@@ -277,7 +283,7 @@ body {
 .filter-button {
   padding: 0.6rem 1.2rem;
   border: 1px solid var(--border-mid);
-  border-radius: 5px;
+  border-radius: 8px; /* Slightly more rounded rectangle */
   background-color: var(--card-bg);
   color: var(--text-medium);
   font-size: 0.9rem;
@@ -298,7 +304,7 @@ body {
   color: #ffffff;
   border-color: var(--accent);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+  box-shadow: 0 2px 10px rgba(94, 139, 126, 0.4); /* Stronger but softer glow */
 }
 
 /* Directory Grid */
@@ -317,9 +323,9 @@ body {
 /* Supervisor Card Styling (Drop Target) */
 .supervisor-card {
   background: var(--card-bg);
-  border-radius: 0.85rem;
+  border-radius: var(--border-radius-soft); /* More rounded corners */
   padding: 2rem 2.25rem;
-  box-shadow: 0 6px 30px var(--shadow);
+  box-shadow: 0 8px 30px var(--shadow); /* Slightly more pronounced but softer shadow */
   border: 1px solid var(--border-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s ease;
   display: flex;
@@ -335,7 +341,7 @@ body {
 /* Style for the card when a badge is dragged over it */
 .supervisor-card.drag-over-target {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(108, 117, 125, 0.25), 0 6px 30px var(--shadow);
+  box-shadow: 0 0 0 4px rgba(94, 139, 126, 0.25), 0 6px 30px var(--shadow); /* Use new accent color */
 }
 
 .supervisor-header {
@@ -409,7 +415,7 @@ body {
   width: 28px; /* Badges in cards are smaller */
   height: 28px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 8px; /* Slightly more rounded than 6px */
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
 }
 
@@ -420,8 +426,8 @@ body {
 }
 
 .badge-icon.badge-clickable:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
+  transform: scale(1.1) translateY(-2px); /* Add a slight lift */
+  opacity: 0.9;
 }
 
 .no-badges-yet {
@@ -535,25 +541,26 @@ body {
   cursor: grab;
   padding: 0.5rem; /* Reduced padding */
   border: 1px solid var(--border-light);
-  border-radius: 0.5rem;
+  border-radius: 0.7rem; /* More rounded for grab-able items */
   background-color: var(--card-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px; /* Reduced width */
-  height: 50px; /* Reduced height */
+  width: 55px; /* Slightly larger for easier grabbing */
+  height: 55px; /* Slightly larger for easier grabbing */
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .draggable-badge-item:hover {
-  background-color: #f8f8f8;
-  transform: translateY(-2px);
+  background-color: var(--border-light); /* Lighter, warmer hover */
+  transform: translateY(-3px) scale(1.03); /* More noticeable lift */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .draggable-badge-item img.badge-icon {
-  width: 40px; /* Reduced image width */
-  height: 40px; /* Reduced image height */
+  width: 45px; /* Adjusted image size for larger container */
+  height: 45px; /* Adjusted image size for larger container */
   object-fit: contain;
   border-radius: 50%;
 }
@@ -578,10 +585,10 @@ body {
 /* --- Footer --- */
 .footer {
   text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-light);
-  opacity: 0.8;
-  margin-top: 4rem;
+  font-size: 0.85rem; /* Slightly larger */
+  color: var(--text-medium); /* Less faded than --text-light */
+  opacity: 0.9;
+  margin-top: 5rem; /* More space from content */
   padding-top: 1.5rem;
   padding-bottom: 1rem;
   border-top: 1px solid var(--border-light);
