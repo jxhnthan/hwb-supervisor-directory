@@ -530,33 +530,36 @@
       "Zheng’s approach to supervision is supervisee-centric, focused on relationship-building, reflexivity, and tailored to the needs of the supervisee at each point of consultation."
     ]
   },
-  {
-    "name": "Muhamad Haikel",
-    "email": "haikel@nus.edu.sg",
-    "title": "Head, Staff Wellbeing and Engagement",
-    "specialisation": "Case Management",
-    "badges": [
-      {
-        "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge",
-        "id": "badge-elephant"
-      },
-      {
-        "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge",
-        "id": "badge-penguin"
-      },
-      {
-        "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge",
-        "id": "badge-monkey"
-      }
-    ],
-    "photoUrl": "/images/HAIKEL.jpg",
-    "bio": [
-      "Haikel began his career at NUS Health and Wellbeing (HWB) as a Care Manager, where he provided care management support to staff respondents and employees experiencing mental health challenges, facilitating their reintegration into the workplace.",
-      "He brings over seven years of case management experience, having had the privilege of working with adults and seniors across the humanitarian, social service, and community care sectors.",
-      "His practice is grounded in humanistic, person-centred, and restorative approaches."
-    ]
-  }
+{
+  "name": "Muhamad Haikel",
+  "email": "haikel@nus.edu.sg",
+  "title": "Head, Staff Wellbeing and Engagement",
+  "specialisation": "Case Management",
+  "badges": [
+    {
+      "src": "/images/ELEPHANT.jpg",
+      "alt": "Elephant Badge",
+      "id": "badge-elephant"
+    },
+    {
+      "src": "/images/PENGUIN.jpg",
+      "alt": "Penguin Badge",
+      "id": "badge-penguin"
+    },
+    {
+      "src": "/images/MONKEY.jpg",
+      "alt": "Monkey Badge",
+      "id": "badge-monkey"
+    }
+  ],
+  "photoUrl": "/images/HAIKEL.jpg",
+  "bio": [
+    "Haikel began his career at NUS Health and Wellbeing (HWB) as a Care Manager, where he provided care management support to staff respondents and employees experiencing mental health challenges, facilitating their reintegration into the workplace. He brings over seven years of case management experience, having had the privilege of working with adults and seniors across the humanitarian, social service, and community care sectors. His practice is grounded in humanistic, person-centred, and restorative approaches.",
+    "A strong advocate for lifelong learning, Haikel is currently pursuing a Master of Counselling with a specialisation in Couples and Family Therapy. He also holds a Postgraduate Diploma in Counselling Psychology, a Graduate Diploma in Applied Positive Psychology, a Bachelor of Social Work, and a Diploma in Nursing.",
+    "In addition to his clinical background, Haikel is an experienced Learning and Development (L&D) practitioner. He has trained, mentored, and supported aspiring adult educators across all levels, from foundational to master trainer certification. He is proficient in designing and delivering mental health and psychosocial support training programmes, particularly in psychological first aid (PFA) and peer support, using a train-the-trainer model.",
+    "In clinical supervision, Haikel integrates the Common Factors and parallel process of the Person-of-the-Supervisor (POTS) and Person-of-the-Therapist (POTT) supervision models with adult learning principles. He tailors his supervisory approach according to the supervisee's developmental stage, focusing on their strengths and growth potential. He is committed to fostering reflective and reflexive practice in a psychologically safe environment, offering a supervision experience that is humanistic, person-centred, and nurturing. Haikel values authenticity, transparent communication, proactiveness, and self-directed learning in the supervisory relationship.",
+    "Haikel currently serves as the Head of Staff Wellbeing and Engagement at NUS, where he oversees staff mental health services. His professional interests include suicidology, disaster mental health, and crisis management. He aspires to become a couples therapist and a practitioner-educator.",
+    "With his breadth of experience, Haikel is well-suited to supervisees seeking guidance in case management or those exploring careers in mental health, particularly in social work, counselling, or psychology. While he possesses over four years of social work experience, his accreditation with the Social Work Accreditation and Advisory Board (SWAAB) remains at the RSW-P level, which does not allow him to provide supervision for professionals needing to clock accredited social work supervision hours."
+  ]
+}
 ]
