@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Clinical Supervisor Directory
+A React-based interactive directory for clinical supervisors, featuring searchable and filterable supervisor profiles with drag-and-drop badge assignment.
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This app provides a directory of clinical supervisors with their profiles, specialisations, and badges. Users can:
+- Search supervisors by name, title, email, or specialisation.
+- Filter supervisors by specialisation using dynamically generated filter buttons.
+- Assign badges to supervisors by dragging badges from a sidebar palette onto their profiles.
+- Remove badges from supervisors directly.
+- Collapse or expand the sidebar containing badges for better screen space usage.
 
-## Available Scripts
+---
+## Features
+- **Search and Filter:** Quickly find supervisors by typing keywords or selecting specialisation filters.
+- **Drag-and-Drop Badges:** Easily assign badges from a sidebar to supervisor profiles.
+- **Badge Removal:** Remove badges from a supervisor profile by clicking a remove action (implemented in `SupervisorCard`).
+- **Dynamic Specialisation Filters:** Specialisation filters are automatically generated based on the data.
+- **Responsive UI:** Sidebar can be toggled (collapsed/expanded) for more screen space.
+- **Live Updates:** Supervisors and badges are managed in React state for real-time changes.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React (with TypeScript)
+- CSS (via `App.css`)
+- Native HTML5 Drag-and-Drop API
+- React Hooks (`useState`, `useEffect`)
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
+- `App.tsx` — Main component managing state, search, filters, drag-drop, and rendering.
+- `components/SupervisorCard.tsx` — Individual supervisor profile card with badges.
+- `data/supervisors.json` — Supervisor data.
+- `public/images/` — Badge and supervisor photos.
+- `App.css` — Styling.
+---
 
-### `npm test`
+## Supervisor Data Model
+```ts
+type Badge = {
+  id: string;     // Unique badge identifier
+  src: string;    // Badge image source URL
+  alt: string;    // Alt text for accessibility
+};
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+type Supervisor = {
+  name: string;
+  title: string;
+  email: string;
+  phone?: string;
+  specialisation?: string;  // Comma-separated specialisations
+  bio?: string[];           // Bio paragraphs
+  badges: Badge[];          // Assigned badges
+  photoUrl?: string;        // Profile photo URL
+};
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
