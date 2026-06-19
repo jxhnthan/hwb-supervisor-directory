@@ -200,7 +200,7 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
           <div className="divider-small" />
 
           {supervisor.specialisation && (
-            <p className="supervisor-specialisation">{supervisor.specialisation}</p>
+            <span className="specialisation-chip">{supervisor.specialisation}</span>
           )}
 
           {/* Display badges currently assigned to this supervisor */}
@@ -237,21 +237,13 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
           <div className={`supervisor-bio ${showBio ? 'bio-show' : 'bio-hide'}`}>
             {renderBio(supervisor.bio)}
           </div>
-          <p
+          <button
             className="bio-toggle"
             onClick={() => setShowBio(!showBio)}
-            role="button"
-            tabIndex={0}
             aria-label={showBio ? 'Collapse bio' : 'Expand bio'}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setShowBio(!showBio);
-              }
-            }}
           >
             {showBio ? 'Show less ▲' : 'Read more ▼'}
-          </p>
+          </button>
         </>
       )}
 

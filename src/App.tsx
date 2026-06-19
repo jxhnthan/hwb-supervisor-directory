@@ -205,14 +205,27 @@ function App() {
         {/* Main Content Area (Left) */}
         <div className="main-content">
           <div className="search-filter-container">
-            <input
-              type="text"
-              placeholder="Search by name, title, or specialisation..." // Original placeholder
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="search-input"
-              aria-label="Search supervisors"
-            />
+            <div className="search-input-wrapper">
+              <span className="search-icon" aria-hidden="true">&#128269;</span>
+              <input
+                type="text"
+                placeholder="Search by name, title, or specialisation..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="search-input"
+                aria-label="Search supervisors"
+              />
+              {searchTerm && (
+                <button
+                  className="clear-search-button"
+                  onClick={() => setSearchTerm('')}
+                  aria-label="Clear search"
+                  title="Clear search"
+                >
+                  &times;
+                </button>
+              )}
+            </div>
 
             {/* Specialisation Filters Section (retained) */}
             {allSpecialisations.length > 0 && (
@@ -233,11 +246,14 @@ function App() {
                     className="clear-filters-button"
                     onClick={() => setActiveSpecialisationFilters([])}
                   >
-                    Clear All
+                    &times; Clear All
                   </button>
                 )}
               </div>
             )}
+            <p className="results-count">
+              Showing <strong>{filteredAndSortedSupervisors.length}</strong> of <strong>{supervisors.length}</strong> supervisors
+            </p>
           </div>
 
           {/* Directory Grid */}
