@@ -299,35 +299,6 @@
     ]
   },
   {
-    "name": "Claudia Ahl",
-    "email": "claudia.ahl@nus.edu.sg",
-    "title": "Principal Wellbeing Specialist Partner",
-    "specialisation": "Clinical Psychologist",
-    "photoUrl": "/images/Claudia.jpg",
-    "badges": [
-      {
-        "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge",
-        "id": "badge-elephant"
-      },
-      {
-        "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge",
-        "id": "badge-penguin"
-      },
-      {
-        "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge",
-        "id": "badge-monkey"
-      }
-    ],
-    "bio": [
-      "Claudia completed her Master’s in Clinical Psychology in Australia in 2013 and has since worked across a range of settings, including KK Women’s & Children’s Hospital, Yale-NUS College, and private clinical practices. She has been providing clinical supervision regularly since 2018.",
-      "Claudia’s clinical work encompasses a broad spectrum of presenting issues, including anxiety, depression, stress, interpersonal and relational challenges, personality disorders, eating and body image concerns, and difficulties with emotional regulation. She primarily draws from Cognitive Behavioural Therapy (CBT), Schema Therapy, Dialectical Behaviour Therapy (DBT), and Mindfulness-based approaches in her practice.",
-      "As a supervisor, Claudia takes a collaborative and supportive approach, aiming to create a safe and nurturing space where supervisees feel comfortable discussing their challenges openly. She strives to offer guidance and constructive feedback while maintaining a level of challenge that promotes professional growth and development."
-    ]
-  },
-  {
     "name": "Soon Jiaying",
     "email": "jy_soon@nus.edu.sg",
     "title": "Senior Wellbeing Specialist Partner",
@@ -355,36 +326,6 @@
       "Currently, Jiaying is part of HWB’s Staff Wellbeing and Engagement team, where she provides individual psychotherapeutic support to NUS staff. She draws from a range of evidence-based therapeutic approaches, including Cognitive Behavioural Therapy (CBT), Acceptance and Commitment Therapy (ACT), Solution-Focused Therapy (SFT), and Mindfulness-based interventions.",
       "Jiaying is an SRP-approved Supervisor and has been offering clinical supervision for the past three years. Her training includes a Certificate of Attainment in Supervision, as well as formal knowledge in Reflective Practice and Deliberate Practice in Supervision.",
       "Jiaying’s supervision is grounded in relationship-building and thoughtful reflection. She values collaboration and is committed to supporting her supervisees in deepening their understanding of client dynamics, while fostering growth in self-awareness and therapeutic presence."
-    ]
-  },
-  {
-    "name": "John Leow",
-    "email": "john.lhc@nus.edu.sg",
-    "title": "Senior Care Manager",
-    "specialisation": "Case Management",
-    "photoUrl": "/images/JL.jpg",
-    "badges": [
-      {
-        "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge",
-        "id": "badge-elephant"
-      },
-      {
-        "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge",
-        "id": "badge-penguin"
-      },
-      {
-        "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge",
-        "id": "badge-monkey"
-      }
-    ],
-    "bio": [
-      "John is a Senior Care Manager with the Staff Wellbeing and Engagement (SWEE) Team, where he supports the Respondent Care and Mental Health Return-to-Work programmes. He brings over a decade of experience in the community service sector and private practice, working with a broad spectrum of individuals across different life stages and challenges.",
-      "John holds a Master of Social Science in Professional Counselling from the Executive Counselling and Training Academy (ECTA) and has been a SAC Registered Counsellor since 2017. He has a strong interest in supporting individuals experiencing addiction and mental health challenges, and currently focuses on helping individuals reintegrate and thrive in the workplace following mental health recovery.",
-      "Grounded in an integrative therapeutic framework, John draws from evidence-based modalities such as Acceptance and Commitment Therapy (ACT), Cognitive Behavioural Therapy (CBT), and Schema Therapy, among others. His approach is client-centred and adaptable to the unique needs of each individual.",
-      "Since 2017, John has been actively involved in supervising Master’s-level counselling interns from institutions such as ECTA, James Cook University (JCU), Monash University, and the Singapore University of Social Sciences (SUSS). In addition, he has been mentoring practising counsellors since 2021, supporting their professional development and clinical growth. His supervisory practice is supported by formal training, including a Certificate of Attainment in Supervision. He adopts a collaborative, reflective, and skills-focused approach to nurture confident, ethical, and client-centred practitioners."
     ]
   },
   {
@@ -473,35 +414,6 @@
     ]
   },
   {
-    "name": "Jimmy Sim",
-    "email": "jim_sim@nus.edu.sg",
-    "title": "Lead Residential Wellness Manager",
-    "specialisation": "Case Management",
-    "photoUrl": "/images/jimmy.jpg",
-    "badges": [
-      {
-        "src": "/images/ELEPHANT.jpg",
-        "alt": "Elephant Badge",
-        "id": "badge-elephant"
-      },
-      {
-        "src": "/images/PENGUIN.jpg",
-        "alt": "Penguin Badge",
-        "id": "badge-penguin"
-      },
-      {
-        "src": "/images/MONKEY.jpg",
-        "alt": "Monkey Badge",
-        "id": "badge-monkey"
-      }
-    ],
-    "bio": [
-      "As the Residential Wellness Manager (Lead), Jim works closely with the Chief Wellbeing Officer (Andrew) and Deputy Head (Zheng) to ensure effective case management and the provision of timely support for students residing in NUS hostels. His collaborative approach and commitment to student welfare help foster a safe and supportive environment, empowering students to navigate challenges and thrive during their university journey.",
-      "Jim holds a Certificate in Supervision for the Social Services (Basic) and brings a strong background in Counselling, having dedicated his professional career to the education sector since graduation. Beginning with peer case consultations in 2023, Jim has been offering clinical supervision within HWB since 2024, supporting fellow practitioners in their growth and reflective practice. While he does not adhere to any specific therapeutic modality, Jim is particularly drawn to strength-based and person-centered approaches, believing in the inherent potential and resilience of each individual.",
-      "Jim is likely to be known for his participative supervisory style, with previous supervisees highlighting how his openness and flexibility have positively benefited their own practices. He encourages active dialogue and mutual learning, creating an environment where supervisees feel heard, supported, and empowered to develop their clinical skills and confidence."
-    ]
-  },
-  {
     "name": "Goh Zhengqin",
     "email": "gzq@nus.edu.sg",
     "title": "Deputy Director & Deputy Head",
@@ -530,36 +442,92 @@
       "Zheng’s approach to supervision is supervisee-centric, focused on relationship-building, reflexivity, and tailored to the needs of the supervisee at each point of consultation."
     ]
   },
-{
-  "name": "Muhamad Haikel",
-  "email": "haikel@nus.edu.sg",
-  "title": "Head, Staff Wellbeing and Engagement",
-  "specialisation": "Case Management",
-  "badges": [
-    {
-      "src": "/images/ELEPHANT.jpg",
-      "alt": "Elephant Badge",
-      "id": "badge-elephant"
-    },
-    {
-      "src": "/images/PENGUIN.jpg",
-      "alt": "Penguin Badge",
-      "id": "badge-penguin"
-    },
-    {
-      "src": "/images/MONKEY.jpg",
-      "alt": "Monkey Badge",
-      "id": "badge-monkey"
-    }
-  ],
-  "photoUrl": "/images/HAIKEL.jpg",
-  "bio": [
-    "Haikel began his career at NUS Health and Wellbeing (HWB) as a Care Manager, where he provided care management support to staff respondents and employees experiencing mental health challenges, facilitating their reintegration into the workplace. He brings over seven years of case management experience, having had the privilege of working with adults and seniors across the humanitarian, social service, and community care sectors. His practice is grounded in humanistic, person-centred, and restorative approaches.",
-    "A strong advocate for lifelong learning, Haikel is currently pursuing a Master of Counselling with a specialisation in Couples and Family Therapy. He also holds a Postgraduate Diploma in Counselling Psychology, a Graduate Diploma in Applied Positive Psychology, a Bachelor of Social Work, and a Diploma in Nursing.",
-    "In addition to his clinical background, Haikel is an experienced Learning and Development (L&D) practitioner. He has trained, mentored, and supported aspiring adult educators across all levels, from foundational to master trainer certification. He is proficient in designing and delivering mental health and psychosocial support training programmes, particularly in psychological first aid (PFA) and peer support, using a train-the-trainer model.",
-    "In clinical supervision, Haikel integrates the Common Factors and parallel process of the Person-of-the-Supervisor (POTS) and Person-of-the-Therapist (POTT) supervision models with adult learning principles. He tailors his supervisory approach according to the supervisee's developmental stage, focusing on their strengths and growth potential. He is committed to fostering reflective and reflexive practice in a psychologically safe environment, offering a supervision experience that is humanistic, person-centred, and nurturing. Haikel values authenticity, transparent communication, proactiveness, and self-directed learning in the supervisory relationship.",
-    "Haikel currently serves as the Head of Staff Wellbeing and Engagement at NUS, where he oversees staff mental health services. His professional interests include suicidology, disaster mental health, and crisis management. He aspires to become a couples therapist and a practitioner-educator.",
-    "With his breadth of experience, Haikel is well-suited to supervisees seeking guidance in case management or those exploring careers in mental health, particularly in social work, counselling, or psychology. While he possesses over four years of social work experience, his accreditation with the Social Work Accreditation and Advisory Board (SWAAB) remains at the RSW-P level, which does not allow him to provide supervision for professionals needing to clock accredited social work supervision hours."
-  ]
-}
+  {
+    "name": "Muhamad Haikel",
+    "email": "haikel@nus.edu.sg",
+    "title": "Head, Staff Wellbeing and Engagement",
+    "specialisation": "Case Management",
+    "badges": [
+      {
+        "src": "/images/ELEPHANT.jpg",
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
+      },
+      {
+        "src": "/images/PENGUIN.jpg",
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
+      },
+      {
+        "src": "/images/MONKEY.jpg",
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
+      }
+    ],
+    "photoUrl": "/images/HAIKEL.jpg",
+    "bio": [
+      "Haikel began his career at NUS Health and Wellbeing (HWB) as a Care Manager, where he provided care management support to staff respondents and employees experiencing mental health challenges, facilitating their reintegration into the workplace. He brings over seven years of case management experience, having had the privilege of working with adults and seniors across the humanitarian, social service, and community care sectors. His practice is grounded in humanistic, person-centred, and restorative approaches.",
+      "A strong advocate for lifelong learning, Haikel is currently pursuing a Master of Counselling with a specialisation in Couples and Family Therapy. He also holds a Postgraduate Diploma in Counselling Psychology, a Graduate Diploma in Applied Positive Psychology, a Bachelor of Social Work, and a Diploma in Nursing.",
+      "In addition to his clinical background, Haikel is an experienced Learning and Development (L&D) practitioner. He has trained, mentored, and supported aspiring adult educators across all levels, from foundational to master trainer certification. He is proficient in designing and delivering mental health and psychosocial support training programmes, particularly in psychological first aid (PFA) and peer support, using a train-the-trainer model.",
+      "In clinical supervision, Haikel integrates the Common Factors and parallel process of the Person-of-the-Supervisor (POTS) and Person-of-the-Therapist (POTT) supervision models with adult learning principles. He tailors his supervisory approach according to the supervisee's developmental stage, focusing on their strengths and growth potential. He is committed to fostering reflective and reflexive practice in a psychologically safe environment, offering a supervision experience that is humanistic, person-centred, and nurturing. Haikel values authenticity, transparent communication, proactiveness, and self-directed learning in the supervisory relationship.",
+      "Haikel currently serves as the Head of Staff Wellbeing and Engagement at NUS, where he oversees staff mental health services. His professional interests include suicidology, disaster mental health, and crisis management. He aspires to become a couples therapist and a practitioner-educator.",
+      "With his breadth of experience, Haikel is well-suited to supervisees seeking guidance in case management or those exploring careers in mental health, particularly in social work, counselling, or psychology. While he possesses over four years of social work experience, his accreditation with the Social Work Accreditation and Advisory Board (SWAAB) remains at the RSW-P level, which does not allow him to provide supervision for professionals needing to clock accredited social work supervision hours."
+    ]
+  },
+  {
+    "name": "Adrian Wan",
+    "email": "adrian1@nus.edu.sg",
+    "title": "Senior Residential Wellbeing Manager",
+    "specialisation": "Case Management",
+    "photoUrl": "/images/Adrian.jpg",
+    "badges": [
+      {
+        "src": "/images/ELEPHANT.jpg",
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
+      },
+      {
+        "src": "/images/PENGUIN.jpg",
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
+      },
+      {
+        "src": "/images/MONKEY.jpg",
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
+      }
+    ],
+    "bio": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    ]
+  },
+  {
+    "name": "Jasmin Foong",
+    "email": "jasmin.foong@nus.edu.sg",
+    "title": "Senior Residential Wellbeing Manager",
+    "specialisation": "Case Management",
+    "photoUrl": "/images/Jasmin.png",
+    "badges": [
+      {
+        "src": "/images/ELEPHANT.jpg",
+        "alt": "Elephant Badge",
+        "id": "badge-elephant"
+      },
+      {
+        "src": "/images/PENGUIN.jpg",
+        "alt": "Penguin Badge",
+        "id": "badge-penguin"
+      },
+      {
+        "src": "/images/MONKEY.jpg",
+        "alt": "Monkey Badge",
+        "id": "badge-monkey"
+      }
+    ],
+    "bio": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    ]
+  }
 ]
