@@ -179,7 +179,7 @@ function App() {
 
       {/* Footer */}
       <div className="footer">
-        Last updated: July 13, 2025. NUS Health and Wellbeing 2025. {/* Original text */}
+        Last updated: June 22, 2026. NUS Health and Wellbeing 2026. {/* Original text */}
       </div>
     </div>
   );
