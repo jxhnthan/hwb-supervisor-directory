@@ -1,13 +1,6 @@
 import React, { useState, useRef } from 'react';
 import html2canvas from 'html2canvas';
 
-// Define the type for a single badge
-type Badge = {
-  id: string;
-  src: string;
-  alt: string;
-};
-
 // Define the type for a supervisor
 type Supervisor = {
   name: string;
@@ -17,20 +10,15 @@ type Supervisor = {
   specialisation?: string;
   bio?: string | string[];
   photoUrl?: string;
-  badges: Badge[];
 };
 
 type SupervisorCardProps = {
   supervisor: Supervisor;
-  onBadgeDrop: (supervisorEmail: string, droppedBadgeId: string) => void;
-  onBadgeRemove: (supervisorEmail: string, badgeIdToRemove: string) => void;
 };
 
-export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: SupervisorCardProps) {
+export function SupervisorCard({ supervisor }: SupervisorCardProps) {
   const [showBio, setShowBio] = useState(false);
-  const [isDragOver, setIsDragOver] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
-  const [showRemoveBadgeMessage, setShowRemoveBadgeMessage] = useState(false); // State for custom message
 
   const cardRef = useRef<HTMLDivElement>(null); // To target the card for screenshot
 
@@ -45,37 +33,6 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
     }
   };
 
-  // Drag-and-drop handlers
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragOver(true);
-  };
-
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-    setIsDragOver(false);
-  };
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragOver(false);
-
-    const droppedBadgeId = e.dataTransfer.getData("text/plain");
-
-    if (droppedBadgeId) {
-      onBadgeDrop(supervisor.email, droppedBadgeId);
-    }
-  };
-
-  // Handles badge click for removal, using a custom message instead of window.confirm
-  const handleBadgeClick = (badgeId: string) => {
-    // Show a temporary message to indicate badge removal
-    setShowRemoveBadgeMessage(true);
-    setTimeout(() => {
-      onBadgeRemove(supervisor.email, badgeId);
-      setShowRemoveBadgeMessage(false);
-    }, 500); // Remove after 0.5 seconds
-  };
-
   // Handles downloading the profile card as a PNG
   const handleDownloadProfile = async () => {
     if (!cardRef.current) {
@@ -84,23 +41,6 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
     }
 
     setIsDownloading(true);
-
-    // Get a reference to the main layout and sidebar elements
-    // This is a direct DOM manipulation for a specific visual effect during screenshot.
-    const mainLayout = document.querySelector('.main-layout');
-    const sidebar = document.querySelector('.sidebar');
-    let wasSidebarCollapsed = false; // To store original sidebar state
-
-    // Temporarily hide the sidebar if it's currently visible
-    if (mainLayout && sidebar) {
-      // Check if sidebar is currently NOT collapsed (i.e., visible)
-      if (!mainLayout.classList.contains('sidebar-collapsed')) {
-        mainLayout.classList.add('sidebar-collapsed');
-        wasSidebarCollapsed = true; // Mark that we collapsed it
-        // Wait for CSS transition to complete (0.3s as per --transition-speed)
-        await new Promise(resolve => setTimeout(resolve, 350));
-      }
-    }
 
     // Temporarily expand bio if it's collapsed, to capture full content
     const bioElement = cardRef.current.querySelector('.supervisor-bio');
@@ -121,12 +61,6 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
       // Reset bio state if it was temporarily expanded
       if (wasBioCollapsed) {
         setShowBio(false);
-      }
-
-      // Revert sidebar state if we temporarily collapsed it
-      if (wasSidebarCollapsed && mainLayout) {
-        mainLayout.classList.remove('sidebar-collapsed');
-        // No need to wait for transition here, as the user already has the screenshot
       }
 
       // Create a link element to trigger the download
@@ -169,11 +103,8 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
   return (
     <div
       ref={cardRef}
-      className={`supervisor-card ${isDragOver ? 'drag-over-target' : ''}`}
+      className="supervisor-card"
       aria-expanded={showBio}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      onDrop={handleDrop}
     >
       <div className="supervisor-header">
         {supervisor.photoUrl && (
@@ -202,24 +133,6 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
           {supervisor.specialisation && (
             <span className="specialisation-chip">{supervisor.specialisation}</span>
           )}
-
-          {/* Display badges currently assigned to this supervisor */}
-          <div className="badges-container">
-            {supervisor.badges.length > 0 ? (
-              supervisor.badges.map((badge) => (
-                <img
-                  key={badge.id}
-                  src={badge.src}
-                  alt={badge.alt}
-                  className="badge-icon badge-clickable"
-                  onClick={() => handleBadgeClick(badge.id)}
-                  title={`Click to remove ${badge.alt}`}
-                />
-              ))
-            ) : (
-              <p className="no-badges-yet">Drag badges here to add!</p>
-            )}
-          </div>
         </div>
       </div>
 
@@ -245,26 +158,6 @@ export function SupervisorCard({ supervisor, onBadgeDrop, onBadgeRemove }: Super
             {showBio ? 'Show less ▲' : 'Read more ▼'}
           </button>
         </>
-      )}
-
-      {/* Custom message for badge removal */}
-      {showRemoveBadgeMessage && (
-        <div style={{
-          position: 'absolute',
-          bottom: '1rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: '#d1e7dd',
-          color: '#0f5132',
-          padding: '8px 15px',
-          borderRadius: '5px',
-          fontSize: '0.85rem',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-          zIndex: 10,
-          whiteSpace: 'nowrap'
-        }}>
-          Badge removed!
-        </div>
       )}
     </div>
   );
