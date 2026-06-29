@@ -237,7 +237,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-light);
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .clear-search-button {
