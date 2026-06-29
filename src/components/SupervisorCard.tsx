@@ -131,7 +131,11 @@ export function SupervisorCard({ supervisor }: SupervisorCardProps) {
           <div className="divider-small" />
 
           {supervisor.specialisation && (
-            <span className="specialisation-chip">{supervisor.specialisation}</span>
+            <div className="specialisation-pills">
+              {supervisor.specialisation.split(',').map((spec, idx) => (
+                <span key={idx} className="specialisation-chip">{spec.trim()}</span>
+              ))}
+            </div>
           )}
         </div>
       </div>

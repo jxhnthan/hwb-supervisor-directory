@@ -456,18 +456,25 @@ body {
 }
 
 /* Specialisation as a tinted pill chip */
+.specialisation-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
 .specialisation-chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.7rem;
   border-radius: var(--border-radius-pill);
   background-color: rgba(94, 139, 126, 0.1);
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  white-space: nowrap;
   border: 1px solid rgba(94, 139, 126, 0.2);
 }
 
