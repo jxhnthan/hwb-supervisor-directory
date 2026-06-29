@@ -569,11 +569,11 @@ body {
 }
 
 .bio-hide {
-  max-height: 5.4em;
+  max-height: 12em;
   text-overflow: ellipsis;
   white-space: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
