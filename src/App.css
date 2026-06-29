@@ -563,24 +563,48 @@ body {
   color: var(--text-medium);
   opacity: 0.95;
   line-height: 1.6;
-  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+  transition: max-height 0.4s ease-out;
   overflow: hidden;
   flex-grow: 1;
+  position: relative;
 }
 
 .bio-hide {
-  max-height: 12em;
-  text-overflow: ellipsis;
-  white-space: normal;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  max-height: 10em;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(94, 139, 126, 0.3) transparent;
+}
+
+.bio-hide::-webkit-scrollbar {
+  width: 5px;
+}
+
+.bio-hide::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bio-hide::-webkit-scrollbar-thumb {
+  background: rgba(94, 139, 126, 0.3);
+  border-radius: 4px;
+}
+
+.bio-hide::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 2.5em;
+  background: linear-gradient(transparent, var(--card-bg));
+  pointer-events: none;
 }
 
 .bio-show {
-  max-height: 1000px;
-  opacity: 1;
+  max-height: none;
+  overflow: visible;
 }
 
 /* Bio toggle as a proper pill button */
