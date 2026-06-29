@@ -280,6 +280,7 @@ body {
   -webkit-overflow-scrolling: touch; /* Improves scrolling performance on touch devices */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: var(--text-light) transparent; /* Firefox */
+  box-sizing: border-box;
 }
 
 /* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
@@ -831,6 +832,8 @@ body {
 
   .directory {
     gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 
   .supervisor-card {
@@ -867,8 +870,25 @@ body {
   }
 
   .specialisation-filters {
-    padding: 0.5rem; /* Even less padding on very small screens */
-    gap: 0.4rem; /* Even smaller gap */
+    padding: 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: 30px;
+  }
+
+  .clear-filters-button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.78rem;
+    min-height: 30px;
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
   }
 
   .filter-label {
