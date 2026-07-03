@@ -119,7 +119,7 @@ function App() {
               </span>
               <input
                 type="text"
-                placeholder="Search by name, title, or suitable for..."
+                placeholder="Search by name or title…"
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="search-input"
@@ -140,7 +140,7 @@ function App() {
             {/* Suitable For Filters Section */}
             {allSuitableForOptions.length > 0 && (
               <div className="specialisation-filters">
-                <span className="filter-label">Filter by Suitable for:</span>
+                <span className="filter-label">I am a…</span>
                 {allSuitableForOptions.map(option => (
                   <button
                     key={option}

@@ -265,45 +265,15 @@ body {
   color: var(--text-dark);
 }
 
-/* REFINED FOR SINGLE LINE: Specialisation Filters Container */
+/* Minimal filter row */
 .specialisation-filters {
   display: flex;
-  flex-wrap: nowrap; /* 🔥 CRUCIAL: Prevent wrapping to keep them on a single line */
-  justify-content: center; /* Center buttons horizontally if they fit */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
-  width: 100%; /* Take full available width */
-  padding: 1rem;
-  background-color: var(--bg);
-  border-radius: var(--border-radius-soft);
-  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--border-light);
+  width: 100%;
   align-items: center;
-  overflow-x: auto; /* Allows horizontal scrolling if items don't fit */
-  -webkit-overflow-scrolling: touch; /* Improves scrolling performance on touch devices */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: var(--text-light) transparent; /* Firefox */
   box-sizing: border-box;
-}
-
-/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
-.specialisation-filters::-webkit-scrollbar {
-  height: 8px; /* Height of the horizontal scrollbar */
-}
-
-.specialisation-filters::-webkit-scrollbar-track {
-  background: transparent; /* Make track transparent */
-  border-radius: 10px;
-}
-
-.specialisation-filters::-webkit-scrollbar-thumb {
-  background: var(--border-mid); /* Color of the scroll thumb */
-  border-radius: 10px;
-  border: 2px solid transparent; /* Padding around the thumb */
-  background-clip: padding-box; /* Makes padding transparent */
-}
-
-.specialisation-filters::-webkit-scrollbar-thumb:hover {
-  background: var(--text-medium); /* Darker on hover */
 }
 
 
@@ -312,13 +282,11 @@ body {
   font-size: 0.9rem;
   color: var(--text-medium);
   font-weight: 600;
-  margin-right: 0.7rem;
+  margin-right: 0.3rem;
   white-space: nowrap;
   display: flex;
   align-items: center;
   line-height: 1;
-  padding-right: 0.5rem; /* Padding to the right of the label to prevent it from sticking to the scrollbar edge */
-  flex-shrink: 0; /* Prevent the label from shrinking on small screens */
 }
 
 /* REFINED: Individual Filter Buttons — full pill shape */
