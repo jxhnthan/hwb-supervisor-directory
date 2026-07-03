@@ -8,6 +8,7 @@ type Supervisor = {
   email: string;
   phone?: string;
   specialisation?: string;
+  suitableFor?: string;
   bio?: string | string[];
   photoUrl?: string;
 };
@@ -135,10 +136,11 @@ export function SupervisorCard({ supervisor }: SupervisorCardProps) {
 
           <div className="divider-small" />
 
-          {supervisor.specialisation && (
+          {supervisor.suitableFor && (
             <div className="specialisation-pills">
-              {supervisor.specialisation.split(',').map((spec, idx) => (
-                <span key={idx} className="specialisation-chip">{spec.trim()}</span>
+              <span className="suitable-for-label">Suitable for:</span>
+              {supervisor.suitableFor.split(',').map((role, idx) => (
+                <span key={idx} className="specialisation-chip">{role.trim()}</span>
               ))}
             </div>
           )}

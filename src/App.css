@@ -467,6 +467,17 @@ body {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.suitable-for-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  margin-right: 0.2rem;
 }
 
 .specialisation-chip {

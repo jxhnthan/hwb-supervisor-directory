@@ -10,6 +10,7 @@ type Supervisor = {
   email: string;
   phone?: string;
   specialisation?: string; // This will be used for filtering
+  suitableFor?: string;
   bio?: string[];
   photoUrl?: string;
 };
