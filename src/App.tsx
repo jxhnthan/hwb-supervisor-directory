@@ -20,42 +20,41 @@ function App() {
   const [supervisors, setSupervisors] = useState<Supervisor[]>([]);
   const [filteredAndSortedSupervisors, setFilteredAndSortedSupervisors] = useState<Supervisor[]>([]);
 
-  // State for active specialization filters
-  const [activeSpecialisationFilters, setActiveSpecialisationFilters] = useState<string[]>([]);
-  // State to hold all unique specializations found in data
-  const [allSpecialisations, setAllSpecialisations] = useState<string[]>([]);
+  // State for active suitable-for filters
+  const [activeSuitableForFilters, setActiveSuitableForFilters] = useState<string[]>([]);
+  // State to hold all unique suitable-for values found in data
+  const [allSuitableForOptions, setAllSuitableForOptions] = useState<string[]>([]);
 
-  // Initialize supervisors state and extract unique specialisations when the component mounts
+  // Initialize supervisors state and extract unique suitable-for values when the component mounts
   useEffect(() => {
     const initialProcessedSupervisors = (rawSupervisorsData as Supervisor[]);
     setSupervisors(initialProcessedSupervisors);
 
-    // Extract unique specializations from the initial data
-    const uniqueSpecs = new Set<string>();
+    // Extract unique suitable-for values from the initial data
+    const uniqueOptions = new Set<string>();
     initialProcessedSupervisors.forEach(s => {
-      if (s.specialisation) {
-        // Assuming specialisation can be a comma-separated string (e.g., "Counselling Psychologist, Family Therapy")
-        s.specialisation.split(',').forEach(spec => {
-          const trimmedSpec = spec.trim();
-          if (trimmedSpec) {
-            uniqueSpecs.add(trimmedSpec);
+      if (s.suitableFor) {
+        s.suitableFor.split(',').forEach(option => {
+          const trimmed = option.trim();
+          if (trimmed) {
+            uniqueOptions.add(trimmed);
           }
         });
       }
     });
-    // Sort the specializations alphabetically for consistent display
-    setAllSpecialisations(Array.from(uniqueSpecs).sort());
+    // Sort alphabetically for consistent display
+    setAllSuitableForOptions(Array.from(uniqueOptions).sort());
   }, []); // Empty dependency array means this runs only once on mount
 
-  // Handler for specialization filter buttons
-  const handleSpecialisationFilterToggle = (specialisation: string) => {
-    setActiveSpecialisationFilters(prevFilters => {
-      if (prevFilters.includes(specialisation)) {
+  // Handler for suitable-for filter buttons
+  const handleSuitableForFilterToggle = (option: string) => {
+    setActiveSuitableForFilters(prevFilters => {
+      if (prevFilters.includes(option)) {
         // If already active, remove it
-        return prevFilters.filter(filter => filter !== specialisation);
+        return prevFilters.filter(filter => filter !== option);
       } else {
         // If not active, add it
-        return [...prevFilters, specialisation];
+        return [...prevFilters, option];
       }
     });
   };
@@ -72,31 +71,31 @@ function App() {
           searchTerm === '' || // Show all if no search term
           supervisor.name.toLowerCase().includes(lowerSearchTerm) ||
           supervisor.title.toLowerCase().includes(lowerSearchTerm) ||
-          (supervisor.specialisation &&
-            supervisor.specialisation.toLowerCase().includes(lowerSearchTerm)) ||
+          (supervisor.suitableFor &&
+            supervisor.suitableFor.toLowerCase().includes(lowerSearchTerm)) ||
           supervisor.email.toLowerCase().includes(lowerSearchTerm)
         );
 
-        // 2. Specialisation Filter (FIXED LOGIC)
-        const matchesSpecialisationFilter = (
-          activeSpecialisationFilters.length === 0 || // If no filters are active, this condition passes
+        // 2. Suitable For Filter
+        const matchesSuitableForFilter = (
+          activeSuitableForFilters.length === 0 || // If no filters are active, this condition passes
           (
-            // Ensure supervisor.specialisation exists before attempting to split or compare
-            supervisor.specialisation &&
-            supervisor.specialisation.split(',').some(specPart => // Split and check each part of the specialization string
-              activeSpecialisationFilters.some(filter =>
-                specPart.trim().toLowerCase().includes(filter.toLowerCase())
+            // Ensure supervisor.suitableFor exists before attempting to split or compare
+            supervisor.suitableFor &&
+            supervisor.suitableFor.split(',').some(option => // Split and check each part
+              activeSuitableForFilters.some(filter =>
+                option.trim().toLowerCase().includes(filter.toLowerCase())
               )
             )
           )
         );
 
-        // A supervisor must pass BOTH the search term filter AND the specialization filter
-        return matchesSearchTerm && matchesSpecialisationFilter;
+        // A supervisor must pass BOTH the search term filter AND the suitable-for filter
+        return matchesSearchTerm && matchesSuitableForFilter;
       })
       .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically by name
     setFilteredAndSortedSupervisors(filtered);
-  }, [searchTerm, supervisors, activeSpecialisationFilters]); // Re-run when search term, supervisor data, or active filters change
+  }, [searchTerm, supervisors, activeSuitableForFilters]); // Re-run when search term, supervisor data, or active filters change
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -120,7 +119,7 @@ function App() {
               </span>
               <input
                 type="text"
-                placeholder="Search by name, title, or specialisation..."
+                placeholder="Search by name, title, or suitable for..."
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="search-input"
@@ -138,24 +137,24 @@ function App() {
               )}
             </div>
 
-            {/* Specialisation Filters Section (retained) */}
-            {allSpecialisations.length > 0 && (
+            {/* Suitable For Filters Section */}
+            {allSuitableForOptions.length > 0 && (
               <div className="specialisation-filters">
-                <span className="filter-label">Filter by Expertise:</span>
-                {allSpecialisations.map(spec => (
+                <span className="filter-label">Filter by Suitable for:</span>
+                {allSuitableForOptions.map(option => (
                   <button
-                    key={spec}
-                    className={`filter-button ${activeSpecialisationFilters.includes(spec) ? 'active' : ''}`}
-                    onClick={() => handleSpecialisationFilterToggle(spec)}
+                    key={option}
+                    className={`filter-button ${activeSuitableForFilters.includes(option) ? 'active' : ''}`}
+                    onClick={() => handleSuitableForFilterToggle(option)}
                   >
-                    {spec}
+                    {option}
                   </button>
                 ))}
                 {/* Clear Filters Button - appears only when filters are active */}
-                {activeSpecialisationFilters.length > 0 && (
+                {activeSuitableForFilters.length > 0 && (
                   <button
                     className="clear-filters-button"
-                    onClick={() => setActiveSpecialisationFilters([])}
+                    onClick={() => setActiveSuitableForFilters([])}
                   >
                     &times; Clear All
                   </button>
