@@ -184,7 +184,7 @@ function App() {
 
       {/* Footer */}
       <div className="footer">
-        Last updated: June 22, 2026. NUS Health and Wellbeing 2026. {/* Original text */}
+        Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}. NUS Health and Wellbeing.
       </div>
     </div>
   );
